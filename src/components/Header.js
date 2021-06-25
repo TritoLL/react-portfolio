@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
     margin: 0 auto;
     background-color: ${(props) => props.theme.body};
     border-top: 1px solid ${(props) => props.theme.body};
-    border-bottom: 10px solid ${(props) => props.theme.border};
+    border-bottom: 7px solid ${(props) => props.theme.border};
 `;
 
 const Title = styled.h1`

@@ -5,7 +5,7 @@ const StyledFooter = styled.footer`
     width: 100%;
     margin: 0 auto;
     background-color: ${(props) => props.theme.body};
-    border-top: 10px solid ${(props) => props.theme.border};
+    border-top: 7px solid ${(props) => props.theme.border};
     border-bottom: 1px solid ${(props) => props.theme.body};
 `;
 
