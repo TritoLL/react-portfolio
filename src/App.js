@@ -6,8 +6,8 @@ import {
     Switch,
     Redirect,
 } from "react-router-dom";
-import Home from "./components/Home";
-import PageNotFound from "./components/PageNotFound";
+import Home from "./pages/Home";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
     return (
