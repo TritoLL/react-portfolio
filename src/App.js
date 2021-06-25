@@ -1,5 +1,7 @@
 import React from "react";
 import "normalize.css";
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./styles/themes";
 import {
     BrowserRouter as Router,
     Route,
@@ -11,13 +13,15 @@ import PageNotFound from "./pages/PageNotFound";
 
 function App() {
     return (
-        <Router>
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/404" component={PageNotFound} />
-                <Redirect to="/404" />
-            </Switch>
-        </Router>
+        <ThemeProvider theme={darkTheme}>
+            <Router>
+                <Switch>
+                    <Route exact path="/" component={Home} />
+                    <Route path="/404" component={PageNotFound} />
+                    <Redirect to="/404" />
+                </Switch>
+            </Router>
+        </ThemeProvider>
     );
 }
 
