@@ -1,12 +1,15 @@
 import React from "react";
-import { About, Education, Projects } from "./";
+import About from "./About";
+import Education from "./Education";
+import Projects from "./Projects";
 
 const Home = () => {
     return (
         <>
-            <div> Hello World! </div> <About />
-            <Education />
+            <div> Hello World! </div>
+            <About />
             <Projects />
+            <Education />
         </>
     );
 };
