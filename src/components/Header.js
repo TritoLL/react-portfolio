@@ -4,9 +4,9 @@ import styled from "styled-components";
 const StyledHeader = styled.header`
     width: 100%;
     margin: 0 auto;
-    background-color: ${(props) => props.theme.main};
-    border-top: 1px solid ${(props) => props.theme.main};
-    border-bottom: 10px solid ${(props) => props.theme.accent1};
+    background-color: ${(props) => props.theme.body};
+    border-top: 1px solid ${(props) => props.theme.body};
+    border-bottom: 10px solid ${(props) => props.theme.border};
 `;
 
 const Title = styled.h1`
