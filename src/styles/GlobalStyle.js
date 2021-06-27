@@ -1,6 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-family: 'Ubuntu', sans-serif;
+    }    
+
     body {
         background-color: ${(props) => props.theme.body}
     }
