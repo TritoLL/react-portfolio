@@ -6,7 +6,7 @@ const PaddedLink = styled.a`
 `;
 
 const IconLinks = () => (
-    <>
+    <div>
         <PaddedLink href="https://www.linkedin.com/in/afriesen95/">
             <FaLinkedin size={50} />
         </PaddedLink>
@@ -14,7 +14,7 @@ const IconLinks = () => (
         <PaddedLink href="https://github.com/tritoLL">
             <FaGithub size={50} />
         </PaddedLink>
-    </>
+    </div>
 );
 
 export default IconLinks;
