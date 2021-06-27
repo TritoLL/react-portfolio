@@ -3,11 +3,9 @@ import IconLinks from "./IconLinks";
 
 const Footer = () => {
     return (
-        <>
-            <footer>
-                <IconLinks />
-            </footer>
-        </>
+        <footer>
+            <IconLinks />
+        </footer>
     );
 };
 
