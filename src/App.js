@@ -13,7 +13,7 @@ import PageNotFound from "./pages/PageNotFound";
 
 function App() {
     return (
-        <ThemeProvider theme={lightTheme}>
+        <ThemeProvider theme={darkTheme}>
             <GlobalStyle />
             <Router>
                 <Switch>
