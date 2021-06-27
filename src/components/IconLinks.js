@@ -6,7 +6,7 @@ const PaddedLink = styled.a`
 `;
 
 const IconLinks = () => (
-    <div>
+    <div className="icon-links">
         <PaddedLink href="https://www.linkedin.com/in/afriesen95/">
             <FaLinkedin size={50} />
         </PaddedLink>
