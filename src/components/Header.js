@@ -4,7 +4,10 @@ const Header = () => {
     return (
         <>
             <header>
-                <h1>Header Text Goes Here</h1>
+                <h1>Alexander Friesen</h1>
+                <h2>
+                    <i>(but "Alex" will do.)</i>
+                </h2>
             </header>
         </>
     );
