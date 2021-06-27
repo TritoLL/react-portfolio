@@ -24,10 +24,14 @@ export const GlobalStyle = createGlobalStyle`
         border-bottom: 7px solid ${(props) => props.theme.border};
     }
 
-    footer {
-        border-top: 7px solid ${(props) => props.theme.border};
+    .icon-links {
         display: flex;
         justify-content: center;
+        padding: 5px 0px;
+    }
+
+    footer {
+        border-top: 7px solid ${(props) => props.theme.border};
     }
 
     h1, h2 {
@@ -35,10 +39,25 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     h1 {
-        font-size: 3em;
+        font-size: 8vw;
     }
 
     h2 {
-        font-size: 1.5em;
+        display: none;
+    }
+
+    @media (min-width: 768px) {
+        header .icon-links {
+            position: absolute;
+            top: 7%;
+            right: 1%;
+            padding: 0px;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        h2 {
+            display: block;
+        }
     }
 `;
