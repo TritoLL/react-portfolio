@@ -1,14 +1,19 @@
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import styled from "styled-components";
+
+const PaddedLink = styled.a`
+    padding: 0px 5px;
+`;
 
 const IconLinks = () => (
     <>
-        <a href="https://www.linkedin.com/in/afriesen95/">
+        <PaddedLink href="https://www.linkedin.com/in/afriesen95/">
             <FaLinkedin size={50} />
-        </a>
+        </PaddedLink>
 
-        <a href="https://github.com/tritoLL">
+        <PaddedLink href="https://github.com/tritoLL">
             <FaGithub size={50} />
-        </a>
+        </PaddedLink>
     </>
 );
 

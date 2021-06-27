@@ -30,10 +30,6 @@ export const GlobalStyle = createGlobalStyle`
         justify-content: center;
     }
 
-    footer * {
-        padding: 0px 5px;
-    }
-
     h1, h2 {
         text-align: center;
     }
