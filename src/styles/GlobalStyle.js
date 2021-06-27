@@ -26,6 +26,12 @@ export const GlobalStyle = createGlobalStyle`
 
     footer {
         border-top: 7px solid ${(props) => props.theme.border};
+        display: flex;
+        justify-content: center;
+    }
+
+    footer * {
+        padding: 0px 5px;
     }
 
     h1, h2 {
