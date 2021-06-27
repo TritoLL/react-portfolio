@@ -10,11 +10,10 @@ export const GlobalStyle = createGlobalStyle`
     }    
 
     body {
-        background-color: ${(props) => props.theme.body}
+        background-color: ${(props) => props.theme.body};
     }
 
     header, footer {
-        color: ${(props) => props.theme.text};
         background-color: ${(props) => props.theme.main};
         padding: 10px;
         width: 100%;
@@ -22,11 +21,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     header {
-        border-bottom: 7px solid ${(props) => props.theme.border}
+        border-bottom: 7px solid ${(props) => props.theme.border};
     }
 
     footer {
-        border-top: 7px solid ${(props) => props.theme.border}
+        border-top: 7px solid ${(props) => props.theme.border};
     }
 
     h1, h2 {
