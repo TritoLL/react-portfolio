@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./styles/themes";
+import { GlobalStyle } from "./styles/GlobalStyle";
 import {
     BrowserRouter as Router,
     Route,
@@ -12,7 +13,8 @@ import PageNotFound from "./pages/PageNotFound";
 
 function App() {
     return (
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={lightTheme}>
+            <GlobalStyle />
             <Router>
                 <Switch>
                     <Route exact path="/" component={Home} />
