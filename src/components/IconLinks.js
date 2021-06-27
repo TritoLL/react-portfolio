@@ -11,7 +11,7 @@ const IconLinks = () => (
             <FaLinkedin size={50} />
         </PaddedLink>
 
-        <PaddedLink href="https://github.com/tritoLL">
+        <PaddedLink href="https://github.com/TritoLL">
             <FaGithub size={50} />
         </PaddedLink>
     </div>
