@@ -27,7 +27,6 @@ export const GlobalStyle = createGlobalStyle`
     .icon-links {
         display: flex;
         justify-content: center;
-        padding: 5px 0px;
     }
 
     footer {
@@ -49,9 +48,8 @@ export const GlobalStyle = createGlobalStyle`
     @media (min-width: 768px) {
         header .icon-links {
             position: absolute;
-            top: 7%;
+            top: 35px;
             right: 1%;
-            padding: 0px;
         }
         h1 {
             font-size: 3em;
