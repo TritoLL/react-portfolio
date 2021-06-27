@@ -5,7 +5,8 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         border: 0;
-        font-family: 'Ubuntu', sans-serif;
+        font-family: 'Roboto Mono', monospace;
+        color: ${(props) => props.theme.text};
     }    
 
     body {
