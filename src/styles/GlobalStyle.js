@@ -40,10 +40,6 @@ export const GlobalStyle = createGlobalStyle`
         display: none;
     }
 
-    section {
-        padding: 15px 0;
-    }
-
     section:nth-child(odd) {
         background-color: ${(props) => props.theme.main}AA;
     }
@@ -56,6 +52,14 @@ export const GlobalStyle = createGlobalStyle`
     .icon-links {
         display: flex;
         justify-content: center;
+    }
+
+    .centered {
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+        align-content: center;
+        padding: 15px 0;
     }
 
     @media (min-width: 768px) {
