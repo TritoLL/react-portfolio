@@ -1,7 +1,7 @@
 import React from "react";
 
 const Education = () => {
-    return <section className="centered">Education</section>;
+    return <section>Education</section>;
 };
 
 export default Education;

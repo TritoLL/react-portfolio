@@ -53,15 +53,7 @@ export const GlobalStyle = createGlobalStyle`
         display: flex;
         justify-content: center;
     }
-
-    .centered {
-        display: flex;
-        margin: 0 auto;
-        justify-content: center;
-        align-content: center;
-        padding: 15px 0;
-    }
-
+    
     @media (min-width: 768px) {
         header .icon-links {
             position: absolute;
