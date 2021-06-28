@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const Oops = styled.h1`
     font-size: 10em;
+    color: ${(props) => props.theme.border};
 `;
 
 const OopsParagraph = styled.p`
