@@ -24,18 +24,8 @@ export const GlobalStyle = createGlobalStyle`
         border-bottom: 7px solid ${(props) => props.theme.border};
     }
 
-    .fake-link {
-        text-decoration: none;
-        pointer-events: none;
-    }
-
     footer {
         border-top: 7px solid ${(props) => props.theme.border};
-    }
-
-    .icon-links {
-        display: flex;
-        justify-content: center;
     }
 
     h1, h2 {
@@ -48,6 +38,16 @@ export const GlobalStyle = createGlobalStyle`
 
     h2 {
         display: none;
+    }
+
+    .fake-link {
+        text-decoration: none;
+        pointer-events: none;
+    }
+
+    .icon-links {
+        display: flex;
+        justify-content: center;
     }
 
     @media (min-width: 768px) {
