@@ -32,11 +32,11 @@ export const GlobalStyle = createGlobalStyle`
         text-align: center;
     }
 
-    h1 {
+    header h1 {
         font-size: 8vw;
     }
 
-    h2 {
+    header h2 {
         display: none;
     }
 
@@ -60,10 +60,10 @@ export const GlobalStyle = createGlobalStyle`
             top: 35px;
             right: 1%;
         }
-        h1 {
+        header h1 {
             font-size: 3em;
         }
-        h2 {
+        header h2 {
             display: block;
         }
     }
