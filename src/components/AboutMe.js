@@ -63,7 +63,8 @@ const AboutMe = () => {
                 <Key>aComment:</Key> '
                 <i>
                     Welcome to my portfolio! Here you'll find information about
-                    me, this website, my personal projects, and my education.
+                    me, my personal projects, my education, and this portfolio
+                    website.
                 </i>
                 ',
                 <br />
