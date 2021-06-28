@@ -57,9 +57,12 @@ const AboutMe = () => {
                 <Key>myInterests:</Key> ['Game Development', 'Software
                 Development', 'Web Development', 'Video Games', 'Cute Dogs'],
                 <br />
-                <Key>aComment:</Key> 'Welcome to my portfolio! Here you'll find
-                information about me, this website, my personal projects, and my
-                education.',
+                <Key>aComment:</Key> '
+                <i>
+                    Welcome to my portfolio! Here you'll find information about
+                    me, this website, my personal projects, and my education.
+                </i>
+                ',
                 <br />
             </CodeParagraph>
             <CodeParagraph fontSize={bigText} left="25" width="10">
