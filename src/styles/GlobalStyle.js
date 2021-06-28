@@ -24,13 +24,13 @@ export const GlobalStyle = createGlobalStyle`
         border-bottom: 7px solid ${(props) => props.theme.border};
     }
 
+    footer {
+        border-top: 7px solid ${(props) => props.theme.border};
+    }
+
     .icon-links {
         display: flex;
         justify-content: center;
-    }
-
-    footer {
-        border-top: 7px solid ${(props) => props.theme.border};
     }
 
     h1, h2 {
