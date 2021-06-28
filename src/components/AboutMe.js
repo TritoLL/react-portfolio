@@ -48,7 +48,7 @@ const AboutMe = () => {
         <section>
             <CodeParagraph fontSize={bigText} left="25" width="55">
                 const{" "}
-                <Title href="#about" className="fake-link">
+                <Title href="#aboutme" className="fake-link">
                     aboutMe
                 </Title>{" "}
                 = &#123;
