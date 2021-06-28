@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
         border-bottom: 7px solid ${(props) => props.theme.border};
     }
 
-    header a {
+    .fake-link {
         text-decoration: none;
         pointer-events: none;
     }

@@ -47,7 +47,11 @@ const AboutMe = () => {
     return (
         <section>
             <CodeParagraph fontSize={bigText} left="25" width="55">
-                const <Title href="#about">aboutMe</Title> = &#123;
+                const{" "}
+                <Title href="#about" className="fake-link">
+                    aboutMe
+                </Title>{" "}
+                = &#123;
             </CodeParagraph>
             <CodeParagraph fontSize={smallText} left="30" width="50">
                 <Key>myName:</Key> 'Alex',

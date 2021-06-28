@@ -4,7 +4,7 @@ import IconLinks from "./IconLinks";
 const Header = () => {
     return (
         <header>
-            <a href="#top">
+            <a href="#top" className="fake-link">
                 <h1>Alexander Friesen</h1>
             </a>
             <h2>
