@@ -1,9 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import dayjs from "dayjs";
-
-const bigText = "5";
-const smallText = "2";
 import { AnchorTitle } from "../styles/CustomStyles";
 
 const CodeParagraph = styled.p`
@@ -24,10 +21,10 @@ const CodeParagraph = styled.p`
 
 const Key = styled.span`
     color: ${(props) => props.theme.border};
-    font-size: ${smallText * 1.25}vw;
+    font-size: ${(props) => props.theme.bigText * 1.25}vw;
 
     @media (min-width: 768px) {
-        font-size: ${smallText * 0.75}vw;
+        font-size: ${(props) => props.theme.smallText * 0.75}vw;
     }
 `;
 
@@ -40,14 +37,22 @@ const AboutMe = () => {
 
     return (
         <section>
-            <CodeParagraph fontSize={bigText} left="25" width="55">
+            <CodeParagraph
+                fontSize={(props) => props.theme.bigText}
+                left="25"
+                width="55"
+            >
                 const{" "}
                 <AnchorTitle href="#aboutme" className="fake-link">
                     aboutMe
                 </AnchorTitle>{" "}
                 = &#123;
             </CodeParagraph>
-            <CodeParagraph fontSize={smallText} left="30" width="50">
+            <CodeParagraph
+                fontSize={(props) => props.theme.smallText}
+                left="30"
+                width="50"
+            >
                 <Key>myName:</Key> 'Alex',
                 <br />
                 <Key>myAge:</Key> '{years} years, {months} months',
@@ -65,7 +70,11 @@ const AboutMe = () => {
                 ',
                 <br />
             </CodeParagraph>
-            <CodeParagraph fontSize={bigText} left="25" width="10">
+            <CodeParagraph
+                fontSize={(props) => props.theme.bigText}
+                left="25"
+                width="10"
+            >
                 &#125;
             </CodeParagraph>
         </section>
