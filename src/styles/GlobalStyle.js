@@ -40,6 +40,14 @@ export const GlobalStyle = createGlobalStyle`
         display: none;
     }
 
+    section {
+        padding: 15px 0;
+    }
+
+    section:nth-child(odd) {
+        background-color: ${(props) => props.theme.main}AA;
+    }
+
     .fake-link {
         text-decoration: none;
         pointer-events: none;
