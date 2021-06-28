@@ -1,7 +1,8 @@
 import React from "react";
 import IconLinks from "./IconLinks";
+import ThemeToggler from "./ThemeToggler";
 
-const Header = () => {
+const Header = ({ toggleTheme }) => {
     return (
         <header>
             <a href="#top" className="fake-link">
@@ -11,6 +12,7 @@ const Header = () => {
                 <i>(but "Alex" will do.)</i>
             </h2>
             <IconLinks />
+            <ThemeToggler toggleTheme={toggleTheme} />
         </header>
     );
 };

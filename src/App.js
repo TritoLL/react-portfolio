@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./styles/themes";
 import { GlobalStyle } from "./styles/GlobalStyle";
@@ -12,13 +12,23 @@ import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
 
 function App() {
+    const [theme, setTheme] = useState("darkTheme");
+
+    const toggleTheme = () => {
+        theme === "darkTheme" ? setTheme("lightTheme") : setTheme("darkTheme");
+    };
+
     return (
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={theme === "darkTheme" ? darkTheme : lightTheme}>
             <GlobalStyle />
             <Router>
                 <Switch>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/404" component={PageNotFound} />
+                    <Route exact path="/">
+                        <Home toggleTheme={toggleTheme} />
+                    </Route>
+                    <Route path="/404">
+                        <PageNotFound />
+                    </Route>
                     <Redirect to="/404" />
                 </Switch>
             </Router>
