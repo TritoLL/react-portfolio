@@ -9,6 +9,13 @@ export const GlobalStyle = createGlobalStyle`
         color: ${(props) => props.theme.text};
     }    
 
+    a:hover,
+    a:active,
+    a:hover > svg > path,
+    a:active > svg > path {
+        color: ${(props) => props.theme.border};
+    }
+
     body {
         background-color: ${(props) => props.theme.body};
     }
