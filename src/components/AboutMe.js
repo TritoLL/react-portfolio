@@ -4,7 +4,10 @@ import dayjs from "dayjs";
 import { AnchorTitle } from "../styles/CustomStyles";
 
 const CodeParagraph = styled.p`
-    font-size: ${(props) => props.fontSize * 1.5}vw;
+    font-size: ${(props) =>
+        props.size === "big"
+            ? (props) => props.theme.bigText * 1.5
+            : (props) => props.theme.smallText * 1.5}vw;
     position: relative;
     width: 80%;
     left: ${(props) => props.left - 15}%;
@@ -15,13 +18,16 @@ const CodeParagraph = styled.p`
     @media (min-width: 768px) {
         width: ${(props) => props.width}%;
         left: ${(props) => props.left}%;
-        font-size: ${(props) => props.fontSize}vw;
+        font-size: ${(props) =>
+            props.size === "big"
+                ? (props) => props.theme.bigText
+                : (props) => props.theme.smallText}vw;
     }
 `;
 
 const Key = styled.span`
     color: ${(props) => props.theme.border};
-    font-size: ${(props) => props.theme.bigText * 1.25}vw;
+    font-size: ${(props) => props.theme.bigText * 0.6}vw;
 
     @media (min-width: 768px) {
         font-size: ${(props) => props.theme.smallText * 0.75}vw;
@@ -37,22 +43,14 @@ const AboutMe = () => {
 
     return (
         <section>
-            <CodeParagraph
-                fontSize={(props) => props.theme.bigText}
-                left="25"
-                width="55"
-            >
+            <CodeParagraph size="big" left="25" width="55">
                 const{" "}
                 <AnchorTitle href="#aboutme" className="fake-link">
                     aboutMe
                 </AnchorTitle>{" "}
                 = &#123;
             </CodeParagraph>
-            <CodeParagraph
-                fontSize={(props) => props.theme.smallText}
-                left="30"
-                width="50"
-            >
+            <CodeParagraph size="small" left="30" width="50">
                 <Key>myName:</Key> 'Alex',
                 <br />
                 <Key>myAge:</Key> '{years} years, {months} months',
@@ -70,11 +68,7 @@ const AboutMe = () => {
                 ',
                 <br />
             </CodeParagraph>
-            <CodeParagraph
-                fontSize={(props) => props.theme.bigText}
-                left="25"
-                width="10"
-            >
+            <CodeParagraph size="big" left="25" width="10">
                 &#125;
             </CodeParagraph>
         </section>
