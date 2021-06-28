@@ -7,6 +7,8 @@ export const GlobalStyle = createGlobalStyle`
         border: 0;
         font-family: 'Roboto Mono', monospace;
         color: ${(props) => props.theme.text};
+        // transition-property: background-color, color;
+        // transition-duration: 0.15s;
     }    
 
     a:hover,
