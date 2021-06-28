@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import dayjs from "dayjs";
 
 const bigText = "5";
 const smallText = "2";
@@ -37,6 +38,12 @@ const Title = styled.a`
 `;
 
 const About = () => {
+    const today = dayjs(Date.now());
+    const myBirthday = dayjs("1995-09-19");
+
+    const years = today.diff(myBirthday, "year");
+    const months = today.diff(myBirthday, "month") - years * 12;
+
     return (
         <>
             <CodeParagraph fontSize={bigText} left="25" width="55">
@@ -45,7 +52,7 @@ const About = () => {
             <CodeParagraph fontSize={smallText} left="30" width="50">
                 <Key>myName:</Key> 'Alex',
                 <br />
-                <Key>myAge:</Key> 'xx years, xx months, xx days',
+                <Key>myAge:</Key> '{years} years, {months} months',
                 <br />
                 <Key>myLocation:</Key> 'Manitoba, Canada',
                 <br />
