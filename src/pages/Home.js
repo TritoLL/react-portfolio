@@ -6,10 +6,10 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Projects from "../components/Projects";
 
-const Home = ({ toggleTheme }) => {
+const Home = ({ theme, toggleTheme }) => {
     return (
         <>
-            <Header toggleTheme={toggleTheme} />
+            <Header theme={theme} toggleTheme={toggleTheme} />
             <AboutMe />
             <Projects />
             <Education />

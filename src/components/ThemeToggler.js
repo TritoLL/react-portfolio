@@ -1,7 +1,22 @@
 import React from "react";
+import styled from "styled-components";
+import { FaSun, FaMoon } from "react-icons/fa";
 
-const ThemeToggler = ({ toggleTheme }) => {
-    return <button onClick={toggleTheme}>THEME TOGGLER</button>;
+const ThemeButton = styled.button`
+    background-color: transparent;
+`;
+
+const ThemeToggler = ({ theme, toggleTheme, iconSize = 50 }) => {
+    const usingDarkTheme = theme === "darkTheme";
+    const Icon = usingDarkTheme ? FaSun : FaMoon;
+
+    return (
+        <div className="theme-toggler">
+            <ThemeButton onClick={toggleTheme}>
+                <Icon size={iconSize} />
+            </ThemeButton>
+        </div>
+    );
 };
 
 export default ThemeToggler;

@@ -58,7 +58,7 @@ export const GlobalStyle = createGlobalStyle`
         pointer-events: none;
     }
 
-    .icon-links {
+    .icon-links, .theme-toggler {
         display: flex;
         justify-content: center;
     }
@@ -68,6 +68,11 @@ export const GlobalStyle = createGlobalStyle`
             position: absolute;
             top: 35px;
             right: 1%;
+        }
+        header .theme-toggler {
+            position: absolute;
+            top: 35px;
+            left: 1%;
         }
         header h1 {
             font-size: 3em;

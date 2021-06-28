@@ -24,7 +24,7 @@ function App() {
             <Router>
                 <Switch>
                     <Route exact path="/">
-                        <Home toggleTheme={toggleTheme} />
+                        <Home theme={theme} toggleTheme={toggleTheme} />
                     </Route>
                     <Route path="/404">
                         <PageNotFound />
