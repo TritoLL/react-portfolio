@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import dayjs from "dayjs";
-import { AnchorTitle } from "../styles/StyledComponents";
 
 const bigText = "5";
 const smallText = "2";
+import { AnchorTitle } from "../styles/CustomStyles";
 
 const CodeParagraph = styled.p`
     font-size: ${(props) => props.fontSize * 1.5}vw;
