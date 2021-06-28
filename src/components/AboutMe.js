@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import dayjs from "dayjs";
+import { AnchorTitle } from "../styles/StyledComponents";
 
 const bigText = "5";
 const smallText = "2";
@@ -28,13 +29,6 @@ const Key = styled.span`
     @media (min-width: 768px) {
         font-size: ${smallText * 0.75}vw;
     }
-`;
-
-const AnchorTitle = styled.a`
-    text-shadow: 2px 5px 2px #000000;
-    font-weight: bold;
-    text-decoration: none;
-    pointer-events: none;
 `;
 
 const AboutMe = () => {
