@@ -10,7 +10,7 @@ const CodeParagraph = styled.p`
     position: relative;
     width: 80%;
     left: ${(props) => props.left - 15}%;
-    :nth-child(even) {
+    :nth-child(odd) {
         color: ${(props) => props.theme.border};
     }
 
@@ -37,7 +37,7 @@ const Title = styled.a`
     pointer-events: none;
 `;
 
-const About = () => {
+const AboutMe = () => {
     const today = dayjs(Date.now());
     const myBirthday = dayjs("1995-09-19");
 
@@ -45,7 +45,7 @@ const About = () => {
     const months = today.diff(myBirthday, "month") - years * 12;
 
     return (
-        <>
+        <section>
             <CodeParagraph fontSize={bigText} left="25" width="55">
                 const <Title href="#about">aboutMe</Title> = &#123;
             </CodeParagraph>
@@ -67,8 +67,8 @@ const About = () => {
             <CodeParagraph fontSize={bigText} left="25" width="10">
                 &#125;
             </CodeParagraph>
-        </>
+        </section>
     );
 };
 
-export default About;
+export default AboutMe;
