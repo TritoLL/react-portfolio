@@ -4,7 +4,9 @@ import IconLinks from "./IconLinks";
 const Header = () => {
     return (
         <header>
-            <h1>Alexander Friesen</h1>
+            <a href="#top">
+                <h1>Alexander Friesen</h1>
+            </a>
             <h2>
                 <i>(but "Alex" will do.)</i>
             </h2>

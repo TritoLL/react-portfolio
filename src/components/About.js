@@ -29,11 +29,18 @@ const Key = styled.span`
     }
 `;
 
+const Title = styled.a`
+    text-shadow: 2px 5px 2px #000000;
+    font-weight: bold;
+    text-decoration: none;
+    pointer-events: none;
+`;
+
 const About = () => {
     return (
         <>
             <CodeParagraph fontSize={bigText} left="25" width="55">
-                const <b>aboutMe</b> = &#123;
+                const <Title href="#about">aboutMe</Title> = &#123;
             </CodeParagraph>
             <CodeParagraph fontSize={smallText} left="30" width="50">
                 <Key>myName:</Key> 'Alex',

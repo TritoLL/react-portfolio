@@ -24,6 +24,11 @@ export const GlobalStyle = createGlobalStyle`
         border-bottom: 7px solid ${(props) => props.theme.border};
     }
 
+    header a {
+        text-decoration: none;
+        pointer-events: none;
+    }
+
     footer {
         border-top: 7px solid ${(props) => props.theme.border};
     }
