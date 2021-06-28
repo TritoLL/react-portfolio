@@ -30,7 +30,7 @@ const Key = styled.span`
     }
 `;
 
-const Title = styled.a`
+const AnchorTitle = styled.a`
     text-shadow: 2px 5px 2px #000000;
     font-weight: bold;
     text-decoration: none;
@@ -48,9 +48,9 @@ const AboutMe = () => {
         <section>
             <CodeParagraph fontSize={bigText} left="25" width="55">
                 const{" "}
-                <Title href="#aboutme" className="fake-link">
+                <AnchorTitle href="#aboutme" className="fake-link">
                     aboutMe
-                </Title>{" "}
+                </AnchorTitle>{" "}
                 = &#123;
             </CodeParagraph>
             <CodeParagraph fontSize={smallText} left="30" width="50">
