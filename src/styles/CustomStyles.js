@@ -11,3 +11,9 @@ export const AnchorTitle = styled.a`
         font-size: ${(props) => props.theme.bigText}vw;
     }
 `;
+
+export const DivNoMobile = styled.div`
+    @media (max-width: 768px) {
+        display: none;
+    }
+`;

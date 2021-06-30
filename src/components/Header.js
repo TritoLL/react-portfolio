@@ -1,6 +1,7 @@
 import React from "react";
 import IconLinks from "./IconLinks";
 import ThemeToggler from "./ThemeToggler";
+import { DivNoMobile } from "../styles/CustomStyles";
 
 const Header = ({ theme, toggleTheme }) => {
     return (
@@ -11,8 +12,10 @@ const Header = ({ theme, toggleTheme }) => {
             <h2>
                 <i>(but "Alex" will do.)</i>
             </h2>
-            <IconLinks />
-            <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
+            <DivNoMobile>
+                <IconLinks />
+                <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
+            </DivNoMobile>
         </header>
     );
 };
