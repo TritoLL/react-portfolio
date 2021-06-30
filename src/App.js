@@ -12,17 +12,30 @@ import Home from "./pages/Home";
 import PageNotFound from "./pages/PageNotFound";
 
 function App() {
-    const [theme, setTheme] = useState("darkTheme");
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") || "darkTheme"
+    );
 
     const toggleTheme = () => {
         theme === "darkTheme" ? setTheme("lightTheme") : setTheme("darkTheme");
     };
 
+    // this happens once
     useEffect(() => {
+        setTheme(
+            localStorage.getItem("theme") === null
+                ? "darkTheme"
+                : localStorage.getItem("theme")
+        );
         setTimeout(function () {
             document.getElementById("root").classList.add("transition");
         });
     }, []);
+
+    // this happens whenever the theme changes
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
     return (
         <ThemeProvider theme={theme === "darkTheme" ? darkTheme : lightTheme}>
