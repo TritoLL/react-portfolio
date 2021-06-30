@@ -14,6 +14,10 @@ export const GlobalStyle = createGlobalStyle`
         transition-duration: 0.15s;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     a:hover,
     a:active,
     svg:hover > path,
