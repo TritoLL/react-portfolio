@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./styles/themes";
 import { GlobalStyle } from "./styles/GlobalStyle";
@@ -17,6 +17,12 @@ function App() {
     const toggleTheme = () => {
         theme === "darkTheme" ? setTheme("lightTheme") : setTheme("darkTheme");
     };
+
+    useEffect(() => {
+        setTimeout(function () {
+            document.getElementById("root").classList.add("transition");
+        });
+    }, []);
 
     return (
         <ThemeProvider theme={theme === "darkTheme" ? darkTheme : lightTheme}>
