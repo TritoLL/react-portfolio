@@ -7,11 +7,9 @@ const threshold = 100;
 
 const TopButton = styled.button`
     position: fixed;
-    bottom: 3%;
+    bottom: 1%;
     right: 1%;
     z-index: 9999;
-    width: 3%;
-    height: 4%;
     background-color: transparent;
     cursor: pointer;
 `;
@@ -34,11 +32,8 @@ const ScrollToTop = ({ iconSize = 50 }) => {
     window.addEventListener("scroll", toggleVisible);
 
     return (
-        <TopButton
-            onClick={goToTop}
-            style={{ display: visible ? "block" : "none" }}
-        >
-            <FaArrowCircleUp size={iconSize} />
+        <TopButton style={{ display: visible ? "block" : "none" }}>
+            <FaArrowCircleUp onClick={goToTop} size={iconSize} />
         </TopButton>
     );
 };
