@@ -6,9 +6,7 @@ import { DivNoMobile } from "../styles/CustomStyles";
 const Header = ({ theme, toggleTheme }) => {
     return (
         <header>
-            <a href="#top" className="fake-link">
-                <h1>Alexander Friesen</h1>
-            </a>
+            <h1>Alexander Friesen</h1>
             <h2>
                 <i>(but "Alex" will do.)</i>
             </h2>
