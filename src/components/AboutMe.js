@@ -1,29 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import dayjs from "dayjs";
-import { AnchorTitle } from "../styles/CustomStyles";
-
-const CodeParagraph = styled.p`
-    font-size: ${(props) =>
-        props.size === "big"
-            ? (props) => props.theme.bigText * 1.5
-            : (props) => props.theme.smallText * 1.5}vw;
-    position: relative;
-    width: 80%;
-    left: ${(props) => props.left - 15}%;
-    :nth-child(odd) {
-        color: ${(props) => props.theme.border};
-    }
-
-    @media (min-width: 768px) {
-        width: ${(props) => props.width}%;
-        left: ${(props) => props.left}%;
-        font-size: ${(props) =>
-            props.size === "big"
-                ? (props) => props.theme.bigText
-                : (props) => props.theme.smallText}vw;
-    }
-`;
+import { AnchorTitle, CustomParagraph } from "../styles/CustomStyles";
 
 const Key = styled.span`
     color: ${(props) => props.theme.border};
@@ -46,11 +24,11 @@ const AboutMe = () => {
 
     return (
         <section>
-            <CodeParagraph size="big" left="25" width="55">
+            <CustomParagraph size="big" left="25" width="55">
                 const <AnchorTitle href="#aboutme">aboutMe</AnchorTitle> =
                 &#123;
-            </CodeParagraph>
-            <CodeParagraph size="small" left="30" width="50">
+            </CustomParagraph>
+            <CustomParagraph size="small" left="30" width="50">
                 <Key>myName:</Key> 'Alex',
                 <br />
                 <Key>myAge:</Key> '{yearsString}
@@ -69,10 +47,10 @@ const AboutMe = () => {
                 </i>
                 ',
                 <br />
-            </CodeParagraph>
-            <CodeParagraph size="big" left="25" width="10">
+            </CustomParagraph>
+            <CustomParagraph size="big" left="25" width="10">
                 &#125;
-            </CodeParagraph>
+            </CustomParagraph>
         </section>
     );
 };
