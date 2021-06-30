@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FaArrowCircleUp } from "react-icons/fa";
 
 // how many pixels you can scroll down before the button appears
-const threshold = 200;
+const threshold = 100;
 
 const TopButton = styled.button`
     position: fixed;
