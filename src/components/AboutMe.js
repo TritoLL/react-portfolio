@@ -41,6 +41,9 @@ const AboutMe = () => {
     const years = today.diff(myBirthday, "year");
     const months = today.diff(myBirthday, "month") - years * 12;
 
+    const yearsString = `${years} years`;
+    const monthsString = months > 0 ? `, ${months} months` : "";
+
     return (
         <section>
             <CodeParagraph size="big" left="25" width="55">
@@ -53,7 +56,8 @@ const AboutMe = () => {
             <CodeParagraph size="small" left="30" width="50">
                 <Key>myName:</Key> 'Alex',
                 <br />
-                <Key>myAge:</Key> '{years} years, {months} months',
+                <Key>myAge:</Key> '{yearsString}
+                {monthsString}',
                 <br />
                 <Key>myLocation:</Key> 'Manitoba, Canada',
                 <br />
