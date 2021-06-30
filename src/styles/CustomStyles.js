@@ -29,7 +29,7 @@ export const CustomParagraph = styled.p`
     :nth-child(odd) {
         color: ${(props) => props.theme.border};
     }
-    padding: 10px 0px;
+    padding: 10px;
 
     @media (min-width: 768px) {
         width: ${(props) => props.width}%;
