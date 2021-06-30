@@ -47,11 +47,8 @@ const AboutMe = () => {
     return (
         <section>
             <CodeParagraph size="big" left="25" width="55">
-                const{" "}
-                <AnchorTitle href="#aboutme" className="fake-link">
-                    aboutMe
-                </AnchorTitle>{" "}
-                = &#123;
+                const <AnchorTitle href="#aboutme">aboutMe</AnchorTitle> =
+                &#123;
             </CodeParagraph>
             <CodeParagraph size="small" left="30" width="50">
                 <Key>myName:</Key> 'Alex',
