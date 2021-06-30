@@ -40,3 +40,11 @@ export const CustomParagraph = styled.p`
                 : (props) => props.theme.smallText}vw;
     }
 `;
+
+export const CenteredDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+`;
