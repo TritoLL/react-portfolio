@@ -4,7 +4,7 @@ const smallText = "2";
 export const lightTheme = {
     main: "#7868E6",
     body: "#393556",
-    border: "#88CCFF",
+    border: "#88FFDD",
     text: "#EEEEEE",
     bigText: bigText,
     smallText: smallText,
