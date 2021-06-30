@@ -2,10 +2,10 @@ const bigText = "5";
 const smallText = "2";
 
 export const lightTheme = {
-    main: "#7868E6",
-    body: "#393556",
-    border: "#88FFDD",
-    text: "#EEEEEE",
+    main: "#2F5D62",
+    body: "#5E8B7E",
+    border: "#DFEEEA",
+    text: "#DFEEEA",
     bigText: bigText,
     smallText: smallText,
 };
