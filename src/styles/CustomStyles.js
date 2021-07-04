@@ -12,10 +12,12 @@ export const AnchorTitle = styled.a`
     }
 `;
 
-export const DivNoMobile = styled.div`
-    @media (max-width: 768px) {
-        display: none;
-    }
+export const CenteredDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 `;
 
 export const CustomParagraph = styled.p`
@@ -37,10 +39,8 @@ export const CustomParagraph = styled.p`
     }
 `;
 
-export const CenteredDiv = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+export const DivNoMobile = styled.div`
+    @media (max-width: 768px) {
+        display: none;
+    }
 `;
