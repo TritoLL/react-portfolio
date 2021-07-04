@@ -28,7 +28,7 @@ const AboutThis = ({ iconSize = 100 }) => {
                 <CustomParagraph size="small">
                     This portfolio was created during the break between my
                     second and third terms of study at Red River College. It is
-                    a portfolio piece in itself, as it is my first real website
+                    my first attempt at a portfolio as well as my first website
                     built with React.
                 </CustomParagraph>
                 <CustomParagraph
