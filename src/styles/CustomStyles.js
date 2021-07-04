@@ -23,17 +23,13 @@ export const CustomParagraph = styled.p`
         props.size === "big"
             ? (props) => props.theme.bigText * 1.5
             : (props) => props.theme.smallText * 1.5}vw;
+    left: ${(props) => props.left}%;
     position: relative;
     width: 80%;
-    left: ${(props) => props.left - 15}%;
-    :nth-child(odd) {
-        color: ${(props) => props.theme.border};
-    }
     padding: 10px;
 
     @media (min-width: 768px) {
         width: ${(props) => props.width}%;
-        left: ${(props) => props.left}%;
         font-size: ${(props) =>
             props.size === "big"
                 ? (props) => props.theme.bigText
