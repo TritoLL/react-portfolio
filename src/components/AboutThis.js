@@ -18,7 +18,7 @@ const IconBox = styled.div`
     }
 `;
 
-const AboutThis = ({ iconSize = 100 }) => {
+const AboutThis = ({ iconSize = 80 }) => {
     return (
         <section>
             <h1>
