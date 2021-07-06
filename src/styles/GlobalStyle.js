@@ -56,6 +56,10 @@ export const GlobalStyle = createGlobalStyle`
         display: none;
     }
 
+    section {
+        padding: 15px 0px;
+    }
+
     section:nth-child(odd) {
         background-color: ${(props) => props.theme.main}AA;
     }
