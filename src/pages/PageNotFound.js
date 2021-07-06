@@ -13,7 +13,7 @@ const OopsParagraph = styled.p`
     text-align: center;
 `;
 
-const CenteredDiv = styled.div`
+const PageCenteredDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,7 @@ const CenteredDiv = styled.div`
 
 const PageNotFound = () => {
     return (
-        <CenteredDiv>
+        <PageCenteredDiv>
             <div>
                 <Oops>Oops!</Oops>
                 <OopsParagraph>
@@ -32,7 +32,7 @@ const PageNotFound = () => {
                     <Link to="/">Go home?</Link>
                 </OopsParagraph>
             </div>
-        </CenteredDiv>
+        </PageCenteredDiv>
     );
 };
 
