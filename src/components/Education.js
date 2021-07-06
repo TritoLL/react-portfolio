@@ -1,6 +1,6 @@
 import React from "react";
 import { AnchorTitle, CenteredDiv } from "../styles/CustomStyles";
-import { EducationEntry } from "./EducationEntry";
+import EducationEntry from "./EducationEntry";
 import { educationEntries } from "../data/EducationEntries";
 
 const Education = () => {

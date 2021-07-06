@@ -25,7 +25,7 @@ const Description = styled.span`
     left: 5%;
 `;
 
-export const EducationEntry = ({ entry }) => (
+const EducationEntry = ({ entry }) => (
     <CustomDiv>
         <Title>
             <Date>
@@ -46,3 +46,5 @@ export const EducationEntry = ({ entry }) => (
         </Description>
     </CustomDiv>
 );
+
+export default EducationEntry;
