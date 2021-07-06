@@ -46,6 +46,13 @@ const SlideImage = styled.img`
     }
 `;
 
+const SlideTitle = styled.span`
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0px;
+`;
+
 const Projects = () => {
     return (
         <section>
@@ -53,9 +60,32 @@ const Projects = () => {
                 <AnchorTitle href="#projects">Projects</AnchorTitle>
             </h1>
             <SlideshowContainer>
-                <Slide>
+                <Slide id="1">
                     <SlideImage src="../images/testimage.png" alt="test" />
                     <SlideDescription>
+                        <SlideTitle>Slide Title Goes Here</SlideTitle>
+                        This is a slide description. Here is where the
+                        description of a slide will go. If you're describing the
+                        slide, it will appear here. Descriptions of the current
+                        slide will show up here. Describe the slide here.
+                        Description.
+                    </SlideDescription>
+                </Slide>
+                <Slide id="2">
+                    <SlideImage src="../images/testimage.png" alt="test" />
+                    <SlideDescription>
+                        <SlideTitle>Slide Title Goes Here</SlideTitle>
+                        This is a slide description. Here is where the
+                        description of a slide will go. If you're describing the
+                        slide, it will appear here. Descriptions of the current
+                        slide will show up here. Describe the slide here.
+                        Description.
+                    </SlideDescription>
+                </Slide>
+                <Slide id="3">
+                    <SlideImage src="../images/testimage.png" alt="test" />
+                    <SlideDescription>
+                        <SlideTitle>Slide Title Goes Here</SlideTitle>
                         This is a slide description. Here is where the
                         description of a slide will go. If you're describing the
                         slide, it will appear here. Descriptions of the current
