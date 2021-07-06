@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-    AnchorTitle,
-    CenteredDiv,
-    CustomParagraph,
-} from "../styles/CustomStyles";
+import { AnchorTitle, CenteredDiv, CustomDiv } from "../styles/CustomStyles";
 import { FaReact, FaNpm } from "react-icons/fa";
 
 const IconBox = styled.div`
@@ -25,18 +21,18 @@ const AboutThis = ({ iconSize = 80 }) => {
                 <AnchorTitle href="#portfolio">About This Website</AnchorTitle>
             </h1>
             <CenteredDiv>
-                <CustomParagraph size="small">
+                <CustomDiv size="small">
                     This portfolio was created during the break between my
                     second and third terms of study at Red River College. It is
                     my first attempt at a portfolio as well as my first website
                     built with React.
-                </CustomParagraph>
-                <CustomParagraph
+                </CustomDiv>
+                <CustomDiv
                     size="small"
                     style={{ fontWeight: "bold", textAlign: "center" }}
                 >
                     Technologies used:
-                </CustomParagraph>
+                </CustomDiv>
             </CenteredDiv>
 
             <IconBox>

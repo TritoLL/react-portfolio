@@ -10,8 +10,8 @@ const Education = () => {
                 <AnchorTitle href="#education">Education</AnchorTitle>
             </h1>
             <CenteredDiv>
-                {educationEntries.map((entry) => (
-                    <EducationEntry entry={entry} />
+                {educationEntries.map((entry, index) => (
+                    <EducationEntry key={index} entry={entry} />
                 ))}
             </CenteredDiv>
         </section>

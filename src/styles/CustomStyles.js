@@ -21,7 +21,7 @@ export const CenteredDiv = styled.div`
     margin: 0 auto;
 `;
 
-export const CustomParagraph = styled.p`
+export const CustomDiv = styled.div`
     font-size: ${(props) =>
         props.size === "big"
             ? (props) => props.theme.bigText * 1.5

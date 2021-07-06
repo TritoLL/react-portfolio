@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { CustomParagraph } from "../styles/CustomStyles";
+import { CustomDiv } from "../styles/CustomStyles";
 
-const EducationKey = styled.p`
-    display: inline;
-`;
-
-const Title = styled(EducationKey)`
+const Title = styled.span`
     color: ${(props) => props.theme.border};
     font-weight: bold;
 `;
@@ -16,7 +12,7 @@ const Course = styled(Title)`
     font-style: italic;
 `;
 
-const Date = styled(EducationKey)`
+const Date = styled.span`
     font-size: ${(props) => props.theme.smallText * 1.25}vw;
 
     @media (min-width: 768px) {
@@ -24,13 +20,13 @@ const Date = styled(EducationKey)`
     }
 `;
 
-const Description = styled(EducationKey)`
+const Description = styled.span`
     position: relative;
     left: 5%;
 `;
 
 export const EducationEntry = ({ entry }) => (
-    <CustomParagraph>
+    <CustomDiv>
         <Title>
             <Date>
                 {entry.startDate} - {entry.endDate}
@@ -43,10 +39,10 @@ export const EducationEntry = ({ entry }) => (
         <br />{" "}
         <Description>
             <ul>
-                {entry.bulletPoints.map((bulletPoint) => (
-                    <li>{bulletPoint}</li>
+                {entry.bulletPoints.map((bulletPoint, index) => (
+                    <li key={index}>{bulletPoint}</li>
                 ))}
             </ul>
         </Description>
-    </CustomParagraph>
+    </CustomDiv>
 );

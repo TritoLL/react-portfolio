@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import dayjs from "dayjs";
-import {
-    AnchorTitle,
-    CenteredDiv,
-    CustomParagraph,
-} from "../styles/CustomStyles";
+import { AnchorTitle, CenteredDiv, CustomDiv } from "../styles/CustomStyles";
 
 const Key = styled.span`
     color: ${(props) => props.theme.border};
@@ -29,11 +25,11 @@ const AboutMe = () => {
     return (
         <section>
             <CenteredDiv>
-                <CustomParagraph size="big" width="55">
+                <CustomDiv size="big" width="55">
                     const <AnchorTitle href="#aboutme">aboutMe</AnchorTitle> =
                     &#123;
-                </CustomParagraph>
-                <CustomParagraph size="small" left="5" width="50">
+                </CustomDiv>
+                <CustomDiv size="small" left="5" width="50">
                     <Key>myName:</Key> 'Alex',
                     <br />
                     <Key>myAge:</Key> '{yearsString}
@@ -53,10 +49,10 @@ const AboutMe = () => {
                     </i>
                     ',
                     <br />
-                </CustomParagraph>
-                <CustomParagraph size="big" left="0" width="55">
+                </CustomDiv>
+                <CustomDiv size="big" left="0" width="55">
                     &#125;
-                </CustomParagraph>
+                </CustomDiv>
             </CenteredDiv>
         </section>
     );
