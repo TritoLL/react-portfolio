@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const AnchorTitle = styled.a`
     font-size: ${(props) => props.theme.bigText * 1.5}vw;
-    text-shadow: 2px 5px 2px ${(props) => props.theme.main};
+    text-shadow: 6px 6px 3px #212121;
     font-weight: bold;
     text-decoration: none;
     pointer-events: none;
+    color: ${(props) => props.theme.border};
 
     @media (min-width: 768px) {
         font-size: ${(props) => props.theme.bigText}vw;
