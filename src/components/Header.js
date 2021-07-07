@@ -1,6 +1,7 @@
 import React from "react";
 import IconLinks from "./IconLinks";
 import ThemeToggler from "./ThemeToggler";
+import FlavorTextRotator from "./FlavorTextRotator";
 import styled from "styled-components";
 import { HeaderFooter, MobileIconsContainer } from "../styles/CustomStyles";
 
@@ -13,7 +14,7 @@ const Header = ({ theme, toggleTheme }) => {
         <CustomHeader>
             <h1>Alexander Friesen</h1>
             <h2>
-                <i>(but "Alex" will do.)</i>
+                <FlavorTextRotator />
             </h2>
             <MobileIconsContainer>
                 <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
