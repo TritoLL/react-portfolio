@@ -83,11 +83,6 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${(props) => props.theme.main}AA;
     }
 
-    .fake-link {
-        text-decoration: none;
-        pointer-events: none;
-    }
-
     .icon-links, .theme-toggler {
         display: flex;
         justify-content: center;
