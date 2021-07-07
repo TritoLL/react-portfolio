@@ -12,7 +12,7 @@ export const educationEntries = [
             "Acquired SQL knowledge including CRUD/ERD basics, table normalization, functions and aggregates.",
             "Used various languages such as C#, JavaScript, and SQL.",
             "Built and troubleshot (yes, that's really the past tense of troubleshoot) computer networks in Cisco Packet Tracer.",
-            "Created analysis and design models of various systems using Astah software.",
+            "Created analysis and design models of various systems using Astah software while following UML/UP principles.",
             "Designed, implemented, and deployed a website built from scratch.",
         ],
     },
