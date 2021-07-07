@@ -96,6 +96,10 @@ const SlideButtonsDiv = styled(CenteredDiv)`
     }
 `;
 
+const SlideLink = styled.a`
+    text-decoration: none;
+`;
+
 const Slideshow = ({ slideData, slideshowName, iconSize = 80 }) => {
     const [slideIndex, setSlideIndex] = useState(0);
 
@@ -153,7 +157,11 @@ const Slideshow = ({ slideData, slideshowName, iconSize = 80 }) => {
                 <Slide className={`slide-${slideshowName}`} key={index}>
                     <SlideImage src={slideData.img} alt={slideData.alt} />
                     <SlideDescription>
-                        <SlideTitle>{slideData.title}</SlideTitle>
+                        <SlideTitle>
+                            <SlideLink href={slideData.link}>
+                                {slideData.title}
+                            </SlideLink>
+                        </SlideTitle>
                         {slideData.description}
                     </SlideDescription>
                 </Slide>
