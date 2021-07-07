@@ -161,7 +161,7 @@ const Slideshow = ({ slideData, slideshowName, iconSize = 80 }) => {
                     <SlideImage src={slideData.img} alt={slideData.alt} />
                     <SlideDescription>
                         <SlideTitle>
-                            <SlideLink href={slideData.link}>
+                            <SlideLink href={slideData.link} target="_blank">
                                 <FaGlobe />
                                 {slideData.title}
                             </SlideLink>

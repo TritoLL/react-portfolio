@@ -7,11 +7,14 @@ const PaddedLink = styled.a`
 
 const IconLinks = ({ iconSize = 50 }) => (
     <div className="icon-links">
-        <PaddedLink href="https://github.com/TritoLL">
+        <PaddedLink href="https://github.com/TritoLL" target="_blank">
             <FaGithub size={iconSize} />
         </PaddedLink>
 
-        <PaddedLink href="https://www.linkedin.com/in/afriesen95/">
+        <PaddedLink
+            href="https://www.linkedin.com/in/afriesen95/"
+            target="_blank"
+        >
             <FaLinkedin size={iconSize} />
         </PaddedLink>
     </div>
