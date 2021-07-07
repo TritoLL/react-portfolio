@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 const delayBetweenLetters = 25;
 
 const flavorTexts = [
-    'but "Alex" will do.',
     "loves cute dogs.",
     "makes games... sometimes.",
     "thinks React is neat.",

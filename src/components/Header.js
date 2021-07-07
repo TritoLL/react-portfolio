@@ -12,7 +12,7 @@ const CustomHeader = styled(HeaderFooter)`
 const Header = ({ theme, toggleTheme }) => {
     return (
         <CustomHeader>
-            <h1>Alexander Friesen</h1>
+            <h1>Alex Friesen</h1>
             <h2>
                 <FlavorTextRotator />
             </h2>
