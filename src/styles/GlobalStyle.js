@@ -25,6 +25,10 @@ export const GlobalStyle = createGlobalStyle`
         color: ${(props) => props.theme.border};
     }
 
+    svg:active > path {
+        color: ${(props) => props.theme.main};
+    }
+
     body {
         background-color: ${(props) => props.theme.body};
     }
