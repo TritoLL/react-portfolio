@@ -11,8 +11,8 @@ const Header = ({ theme, toggleTheme }) => {
                 <i>(but "Alex" will do.)</i>
             </h2>
             <DivNoMobile>
-                <IconLinks />
                 <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
+                <IconLinks />
             </DivNoMobile>
         </header>
     );
