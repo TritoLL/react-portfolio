@@ -2,7 +2,7 @@ export const projectsData = [
     {
         title: "Tap Those Targets",
         description:
-            "Tap Those Targets is a small video game created in Unity with C#. I developed it over the course of three weeks during a break between terms 1 and 2 of Business Information Technology. Tap Those Targets is published on Steam and Google Play.",
+            "Tap Those Targets is a small video game created in Unity with C#. I developed it over the course of three weeks during a break between my first and second terms of Business Information Technology. Tap Those Targets is published on Steam and Google Play.",
         img: "../images/tapthosetargets.png",
         alt: "Tap Those Targets",
     },

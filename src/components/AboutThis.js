@@ -23,9 +23,9 @@ const AboutThis = ({ iconSize = 80 }) => {
             <CenteredDiv>
                 <CustomDiv size="small">
                     This portfolio was created during the break between my
-                    second and third terms of study at Red River College. It is
-                    my first attempt at a portfolio as well as my first website
-                    built with React.
+                    second and third terms of Business Information
+                    Technology. It is my first attempt at a portfolio as well as
+                    my first website built with React.
                 </CustomDiv>
                 <CustomDiv
                     size="small"
