@@ -47,7 +47,11 @@ const moveDogImages = () => {
 
 const PageNotFound = () => {
     useEffect(() => {
-        setInterval(moveDogImages, 175);
+        const moveDogInterval = setInterval(moveDogImages, 175);
+
+        return function cleanup() {
+            clearInterval(moveDogInterval);
+        };
     }, []);
 
     return (
