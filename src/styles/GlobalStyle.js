@@ -22,6 +22,8 @@ export const GlobalStyle = createGlobalStyle`
     a:active,
     a:hover > *,
     a:active > *,
+    a:hover > svg > path,
+    a:active > svg > path,
     svg:hover > path,
     svg:active > path {
         color: ${(props) => props.theme.border};
