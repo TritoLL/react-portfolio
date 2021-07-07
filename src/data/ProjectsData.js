@@ -1,32 +1,16 @@
 export const projectsData = [
     {
-        title: "Slide 1",
-        description: "Description 1",
-        img: "../images/testimage.png",
-        alt: "test",
+        title: "Tap Those Targets",
+        description:
+            "Tap Those Targets is a small video game created in Unity with C#. I developed it over the course of three weeks during a break between terms 1 and 2 of Business Information Technology. Tap Those Targets is published on Steam and Google Play.",
+        img: "../images/tapthosetargets.png",
+        alt: "Tap Those Targets",
     },
     {
-        title: "Slide 2",
-        description: "Description 2",
-        img: "../images/testimage.png",
-        alt: "test",
-    },
-    {
-        title: "Slide 3",
-        description: "Description 3",
-        img: "../images/testimage.png",
-        alt: "test",
-    },
-    {
-        title: "Slide 4",
-        description: "Description 4",
-        img: "../images/testimage.png",
-        alt: "test",
-    },
-    {
-        title: "Slide 5",
-        description: "Description 5",
-        img: "../images/testimage.png",
-        alt: "test",
+        title: "Dehydrated Bean Sand",
+        description:
+            'When tasked with creating a website from scratch as my final project of Web Development 1, I let my imagination wander to thoughts of dehydrated beans. Made entirely with vanilla HTML/CSS/JS, Dehydrated Bean Sand was my first "real" website.',
+        img: "../images/dehydratedbeansand.png",
+        alt: "DehydratedBeanSand.com",
     },
 ];
