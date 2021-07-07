@@ -10,7 +10,7 @@ export const projectsData = [
     {
         title: "DehydratedBeanSand.com",
         description:
-            "When tasked with creating a website from scratch as my final project of Web Development 1, I let my imagination wander to thoughts of dehydrated beans. This site was made entirely with vanilla HTML/CSS/JS. The domain no longer goes anywhere, but the website lives on in my heart.",
+            "When tasked with creating a website from scratch as my final project of Web Development 1, I let my imagination wander to thoughts of dehydrated beans. This site was made entirely with vanilla HTML/CSS/JS. Don't ask what dehydrated bean sand is, I don't know.",
         link: "https://www.DehydratedBeanSand.com",
         img: "../images/dehydratedbeansand.png",
         alt: "DehydratedBeanSand.com",
