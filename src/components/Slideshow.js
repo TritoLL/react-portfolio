@@ -103,10 +103,6 @@ const Slideshow = ({ slideData, slideshowName, iconSize = 80 }) => {
         setSlideIndex(slideIndex + amount);
     };
 
-    const setSlide = (index) => {
-        setSlideIndex(index);
-    };
-
     useEffect(() => {
         const slides = document.querySelectorAll(`.slide-${slideshowName}`);
         const counter = document.querySelector(
