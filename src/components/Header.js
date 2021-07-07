@@ -1,11 +1,16 @@
 import React from "react";
 import IconLinks from "./IconLinks";
 import ThemeToggler from "./ThemeToggler";
-import { DivNoMobile } from "../styles/CustomStyles";
+import styled from "styled-components";
+import { DivNoMobile, HeaderFooter } from "../styles/CustomStyles";
+
+const CustomHeader = styled(HeaderFooter)`
+    border-bottom: 7px solid ${(props) => props.theme.border};
+`;
 
 const Header = ({ theme, toggleTheme }) => {
     return (
-        <header>
+        <CustomHeader>
             <h1>Alexander Friesen</h1>
             <h2>
                 <i>(but "Alex" will do.)</i>
@@ -14,7 +19,7 @@ const Header = ({ theme, toggleTheme }) => {
                 <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
                 <IconLinks />
             </DivNoMobile>
-        </header>
+        </CustomHeader>
     );
 };
 
