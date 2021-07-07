@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { CenteredDiv } from "../styles/CustomStyles";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import { FaArrowCircleLeft, FaArrowCircleRight, FaGlobe } from "react-icons/fa";
 
 const SlideshowContainer = styled.div`
     overflow: hidden;
@@ -79,7 +79,7 @@ const SlideTitle = styled.span`
     margin: 5px 0px;
 
     @media (min-width: 768px) {
-        font-size: ${(props) => props.theme.smallText * 0.85}vw;
+        font-size: ${(props) => props.theme.smallText * 0.8}vw;
     }
 `;
 
@@ -98,6 +98,9 @@ const SlideButtonsDiv = styled(CenteredDiv)`
 
 const SlideLink = styled.a`
     text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 `;
 
 const Slideshow = ({ slideData, slideshowName, iconSize = 80 }) => {
@@ -159,6 +162,7 @@ const Slideshow = ({ slideData, slideshowName, iconSize = 80 }) => {
                     <SlideDescription>
                         <SlideTitle>
                             <SlideLink href={slideData.link}>
+                                <FaGlobe />
                                 {slideData.title}
                             </SlideLink>
                         </SlideTitle>
