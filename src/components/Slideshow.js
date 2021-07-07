@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { CenteredDiv } from "../styles/CustomStyles";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 const SlideshowContainer = styled.div`
     overflow: hidden;
-    margin: 20px auto 0px auto;
+    margin: 20px auto 20px auto;
     width: 85%;
     position: relative;
 
@@ -72,19 +74,44 @@ const SlideImage = styled.img`
 const SlideTitle = styled.span`
     display: block;
     font-weight: bold;
+    font-size: ${(props) => props.theme.smallText * 2.5}vw;
     text-align: center;
-    margin: 10px 0px;
+    margin: 5px 0px;
+
+    @media (min-width: 768px) {
+        font-size: ${(props) => props.theme.smallText * 0.85}vw;
+    }
 `;
 
-const Slideshow = ({ slideData, slideshowName }) => {
+const SlideButton = styled.button`
+    background-color: transparent;
+    cursor: pointer;
+`;
+
+const SlideButtonsDiv = styled(CenteredDiv)`
+    padding: 0 0 10px 0;
+    flex-direction: row;
+    * {
+        padding: 0 10px;
+    }
+`;
+
+const Slideshow = ({ slideData, slideshowName, iconSize = 80 }) => {
     const [slideIndex, setSlideIndex] = useState(0);
 
     const changeSlide = (amount) => {
         setSlideIndex(slideIndex + amount);
     };
 
+    const setSlide = (index) => {
+        setSlideIndex(index);
+    };
+
     useEffect(() => {
         const slides = document.querySelectorAll(`.slide-${slideshowName}`);
+        const counter = document.querySelector(
+            `.slidecounter-${slideshowName}`
+        );
 
         if (slideIndex >= slides.length) {
             setSlideIndex(0);
@@ -101,24 +128,31 @@ const Slideshow = ({ slideData, slideshowName }) => {
         }
 
         slides[slideIndex].style.display = "flex";
+        counter.innerText = `${slideIndex + 1} / ${slides.length}`;
     }, [slideIndex, slideshowName]);
 
     return (
         <SlideshowContainer>
-            <button
-                onClick={function () {
-                    changeSlide(-1);
-                }}
-            >
-                previous
-            </button>
-            <button
-                onClick={function () {
-                    changeSlide(1);
-                }}
-            >
-                next
-            </button>
+            <SlideButtonsDiv>
+                <SlideButton
+                    onClick={function () {
+                        changeSlide(-1);
+                    }}
+                >
+                    <FaArrowCircleLeft size={iconSize} />
+                </SlideButton>
+                <SlideTitle className={`slidecounter-${slideshowName}`}>
+                    X / Y
+                </SlideTitle>
+                <SlideButton
+                    onClick={function () {
+                        changeSlide(1);
+                    }}
+                >
+                    <FaArrowCircleRight size={iconSize} />
+                </SlideButton>
+            </SlideButtonsDiv>
+
             {slideData.map((slideData, index) => (
                 <Slide className={`slide-${slideshowName}`} key={index}>
                     <SlideImage src={slideData.img} alt={slideData.alt} />
