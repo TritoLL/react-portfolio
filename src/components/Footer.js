@@ -1,7 +1,7 @@
 import React from "react";
 import IconLinks from "./IconLinks";
 import styled from "styled-components";
-import { HeaderFooter } from "../styles/CustomStyles";
+import { HeaderFooter, MobileIconsContainer } from "../styles/CustomStyles";
 
 const CustomFooter = styled(HeaderFooter)`
     border-top: 7px solid ${(props) => props.theme.border};
@@ -10,7 +10,9 @@ const CustomFooter = styled(HeaderFooter)`
 const Footer = () => {
     return (
         <CustomFooter as="footer">
-            <IconLinks />
+            <MobileIconsContainer>
+                <IconLinks />
+            </MobileIconsContainer>
         </CustomFooter>
     );
 };

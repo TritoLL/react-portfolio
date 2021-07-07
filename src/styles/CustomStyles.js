@@ -52,3 +52,15 @@ export const HeaderFooter = styled.header`
     width: 100%;
     margin: 0 auto;
 `;
+
+export const MobileIconsContainer = styled.div`
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            padding: 0px 10px;
+        }
+    }
+`;

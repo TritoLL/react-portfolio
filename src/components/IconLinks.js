@@ -2,7 +2,9 @@ import { FaLinkedin, FaGithub } from "react-icons/fa";
 import styled from "styled-components";
 
 const PaddedLink = styled.a`
-    padding: 0px 5px;
+    @media (min-width: 768px) {
+        padding: 0px 5px;
+    }
 `;
 
 const IconLinks = ({ iconSize = 50 }) => (
