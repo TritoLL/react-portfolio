@@ -12,14 +12,14 @@ const CuteDogImage = styled.img`
 `;
 
 const Oops = styled.h1`
-    font-size: 10em;
+    font-size: 10vw;
     color: ${(props) => props.theme.border};
     text-shadow: 6px 6px 5px black;
 `;
 
 const OopsParagraph = styled.p`
     padding: 10px;
-    font-size: 5em;
+    font-size: 5vw;
     text-align: center;
     text-shadow: 6px 6px 5px black;
 `;
