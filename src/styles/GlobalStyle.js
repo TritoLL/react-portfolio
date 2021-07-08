@@ -61,10 +61,6 @@ export const GlobalStyle = createGlobalStyle`
         text-align: center;
     }
 
-    h1 {
-        font-size: 8vw;
-    }
-
     h2 {
         display: none;
     }
