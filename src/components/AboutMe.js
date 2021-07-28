@@ -20,7 +20,8 @@ const AboutMe = () => {
     const months = today.diff(myBirthday, "month") - years * 12;
 
     const yearsString = `${years} years`;
-    const monthsString = months > 0 ? `, ${months} months` : "";
+    const monthsString =
+        months > 0 ? `, ${months} month${months === 1 ? "" : "s"}` : "";
 
     return (
         <section>
