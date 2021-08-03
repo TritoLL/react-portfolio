@@ -46,13 +46,6 @@ const TicTacDog = () => {
         const img = e.target.querySelector("img");
         if (playersTurn && img != null) {
             markSquare(img);
-            if (!aPlayerHasWon()) {
-                //setPlayersTurn(!playersTurn);
-            } else {
-                console.log("someone won");
-                // win or lose message
-                // restart the game
-            }
         }
     };
 
@@ -60,10 +53,23 @@ const TicTacDog = () => {
         if (img != null) {
             let dog = playersTurn ? "belle" : "mindy";
             img.setAttribute("src", `./images/${dog}.jpg`);
+
+            checkForAWin();
         }
     };
 
-    const aPlayerHasWon = () => {
+    const checkForAWin = () => {
+        let winner = findWinningPlayer();
+        if (winner === "") {
+            // let the next player have their turn
+            setPlayersTurn(!playersTurn);
+        } else {
+            // display a win or lose message and restart the game
+            console.log(`${winner} won!`);
+        }
+    };
+
+    const findWinningPlayer = () => {
         // find all of the images
         const allImages = document.querySelectorAll(`${GameSquare} > img`);
 
@@ -72,52 +78,52 @@ const TicTacDog = () => {
             img.getAttribute("src")
         );
 
-        // [0][1][2]
-        // [3][4][5]
-        // [6][7][8]
-        let result =
-            // [X][X][X]
-            // [ ][ ][ ]
-            // [ ][ ][ ]
-            (allImagePaths[0] === allImagePaths[1] &&
-                allImagePaths[1] === allImagePaths[2]) ||
-            // [ ][ ][ ]
-            // [X][X][X]
-            // [ ][ ][ ]
-            (allImagePaths[3] === allImagePaths[4] &&
-                allImagePaths[4] === allImagePaths[5]) ||
-            // [ ][ ][ ]
-            // [ ][ ][ ]
-            // [X][X][X]
-            (allImagePaths[6] === allImagePaths[7] &&
-                allImagePaths[7] === allImagePaths[8]) ||
-            // [X][ ][ ]
-            // [X][ ][ ]
-            // [X][ ][ ]
-            (allImagePaths[0] === allImagePaths[3] &&
-                allImagePaths[3] === allImagePaths[6]) ||
-            // [ ][X][ ]
-            // [ ][X][ ]
-            // [ ][X][ ]
-            (allImagePaths[1] === allImagePaths[4] &&
-                allImagePaths[4] === allImagePaths[7]) ||
-            // [ ][ ][X]
-            // [ ][ ][X]
-            // [ ][ ][X]
-            (allImagePaths[2] === allImagePaths[5] &&
-                allImagePaths[5] === allImagePaths[8]) ||
-            // [X][ ][ ]
-            // [ ][X][ ]
-            // [ ][ ][X]
-            (allImagePaths[0] === allImagePaths[4] &&
-                allImagePaths[4] === allImagePaths[8]) ||
-            // [ ][ ][X]
-            // [ ][X][ ]
-            // [X][ ][ ]
-            (allImagePaths[2] === allImagePaths[4] &&
-                allImagePaths[4] === allImagePaths[6]);
+        //[0][1][2]
+        //[3][4][5]
+        //[6][7][8]
+        const winningCombinations = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
 
-        return result;
+        let winner = "";
+
+        for (let i = 0; i < winningCombinations.length; i++) {
+            // if any of the squares we are checking are empty, check the next combination immediately
+            if (
+                allImagePaths[winningCombinations[i][0]] === "" ||
+                allImagePaths[winningCombinations[i][1]] === "" ||
+                allImagePaths[winningCombinations[i][2]] === ""
+            ) {
+                continue;
+            }
+
+            // check for a win
+            let result =
+                allImagePaths[winningCombinations[i][0]] ===
+                    allImagePaths[winningCombinations[i][1]] &&
+                allImagePaths[winningCombinations[i][1]] ===
+                    allImagePaths[winningCombinations[i][2]];
+
+            // if someone won, find out who it was and break out of the loop
+            if (result) {
+                winner = allImagePaths[winningCombinations[i][0]];
+                break;
+            }
+        }
+
+        // if the winner string is not empty, return who actually won, otherwise return an empty string
+        return winner !== ""
+            ? winner.includes("belle")
+                ? "Belle"
+                : "Mindy"
+            : "";
     };
 
     return (
