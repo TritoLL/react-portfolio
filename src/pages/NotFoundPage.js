@@ -45,7 +45,7 @@ const moveDogImages = () => {
     }
 };
 
-const PageNotFound = () => {
+const NotFoundPage = () => {
     useEffect(() => {
         const moveDogInterval = setInterval(moveDogImages, 175);
 
@@ -71,4 +71,4 @@ const PageNotFound = () => {
     );
 };
 
-export default PageNotFound;
+export default NotFoundPage;

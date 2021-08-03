@@ -8,9 +8,9 @@ import {
     Switch,
     Redirect,
 } from "react-router-dom";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
 import TicTacDogPage from "./pages/TicTacDogPage";
-import PageNotFound from "./pages/PageNotFound";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
     const [theme, setTheme] = useState(
@@ -44,7 +44,7 @@ function App() {
             <Router>
                 <Switch>
                     <Route exact path="/">
-                        <Home theme={theme} toggleTheme={toggleTheme} />
+                        <HomePage theme={theme} toggleTheme={toggleTheme} />
                     </Route>
                     <Route path="/tic-tac-dog">
                         <TicTacDogPage
@@ -53,7 +53,7 @@ function App() {
                         />
                     </Route>
                     <Route path="/404">
-                        <PageNotFound />
+                        <NotFoundPage />
                     </Route>
                     <Redirect to="/404" />
                 </Switch>

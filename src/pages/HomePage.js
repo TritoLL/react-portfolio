@@ -7,7 +7,7 @@ import Header from "../components/Header";
 import Projects from "../components/Projects";
 import ScrollToTop from "../components/ScrollToTop";
 
-const Home = ({ theme, toggleTheme }) => {
+const HomePage = ({ theme, toggleTheme }) => {
     return (
         <>
             <Header theme={theme} toggleTheme={toggleTheme} />
@@ -21,4 +21,4 @@ const Home = ({ theme, toggleTheme }) => {
     );
 };
 
-export default Home;
+export default HomePage;
