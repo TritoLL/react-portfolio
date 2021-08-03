@@ -9,6 +9,7 @@ import {
     Redirect,
 } from "react-router-dom";
 import Home from "./pages/Home";
+import TicTacDog from "./pages/TicTacDog";
 import PageNotFound from "./pages/PageNotFound";
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
                 <Switch>
                     <Route exact path="/">
                         <Home theme={theme} toggleTheme={toggleTheme} />
+                    </Route>
+                    <Route path="/tic-tac-dog">
+                        <TicTacDog theme={theme} toggleTheme={toggleTheme} />
                     </Route>
                     <Route path="/404">
                         <PageNotFound />
