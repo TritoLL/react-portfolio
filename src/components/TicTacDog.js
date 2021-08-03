@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+const debugging = true;
 const gapSize = 20;
 const tileBorderSize = 5;
 const mobileTileSize = 175;
@@ -44,7 +45,7 @@ const TicTacDog = () => {
 
     const squareClicked = (e) => {
         const img = e.target.querySelector("img");
-        if (playersTurn && img != null) {
+        if (img != null && (playersTurn || debugging)) {
             markSquare(img);
         }
     };
