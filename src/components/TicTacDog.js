@@ -105,12 +105,11 @@ const TicTacDog = () => {
             img.setAttribute("src", `./images/${dog}.jpg`);
             img.setAttribute("alt", `${dog}`);
 
-            checkForAWin();
+            endTurn(findNameOfWinner());
         }
     };
 
-    const checkForAWin = () => {
-        let winner = findWinningPlayer();
+    const endTurn = (winner) => {
         if (winner === "") {
             setPlayersTurn(!playersTurn);
         } else {
@@ -124,7 +123,7 @@ const TicTacDog = () => {
         }
     };
 
-    const findWinningPlayer = () => {
+    const findNameOfWinner = () => {
         // find all of the images
         const allImages = document.querySelectorAll(`${GameSquare} > img`);
 
@@ -147,8 +146,6 @@ const TicTacDog = () => {
             [2, 4, 6],
         ];
 
-        let winner = "";
-
         for (let i = 0; i < winningCombinations.length; i++) {
             // if any of the squares we are checking are empty, check the next combination immediately
             if (
@@ -168,32 +165,20 @@ const TicTacDog = () => {
 
             // if someone won, find out who it was and break out of the loop
             if (result) {
-                winner = allImagePaths[winningCombinations[i][0]];
-                break;
+                return allImagePaths[winningCombinations[i][0]].includes(
+                    "belle"
+                )
+                    ? "Belle"
+                    : "Mindy";
             }
         }
-
-        // if the winner string is not empty, return who actually won, otherwise return an empty string
-        return winner !== ""
-            ? winner.includes("belle")
-                ? "Belle"
-                : "Mindy"
-            : "";
+        return "";
     };
 
-    return (
-        <>
-            <GameHeader>
-                <ScoreContainer>
-                    <ScoreImage src="./images/belle.jpg" alt="Belle Score" />
-                    <ScoreText>{belleScore}</ScoreText>
-                </ScoreContainer>
-                <GameTitle>Tic-Tac-Dog</GameTitle>
-                <ScoreContainer>
-                    <ScoreImage src="./images/mindy.jpg" alt="Mindy Score" />
-                    <ScoreText>{mindyScore}</ScoreText>
-                </ScoreContainer>
-            </GameHeader>
+    let gameComponent;
+
+    if (gameActive) {
+        gameComponent = (
             <GridContainer>
                 <GameSquare onClick={squareClicked}>
                     <img src="" alt="" />
@@ -223,6 +208,25 @@ const TicTacDog = () => {
                     <img src="" alt="" />
                 </GameSquare>
             </GridContainer>
+        );
+    } else {
+        gameComponent = <p>PLAY AGAIN PANEL PLACEHOLDER</p>;
+    }
+
+    return (
+        <>
+            <GameHeader>
+                <ScoreContainer>
+                    <ScoreImage src="./images/belle.jpg" alt="Belle Score" />
+                    <ScoreText>{belleScore}</ScoreText>
+                </ScoreContainer>
+                <GameTitle>Tic-Tac-Dog</GameTitle>
+                <ScoreContainer>
+                    <ScoreImage src="./images/mindy.jpg" alt="Mindy Score" />
+                    <ScoreText>{mindyScore}</ScoreText>
+                </ScoreContainer>
+            </GameHeader>
+            {gameComponent}
         </>
     );
 };
