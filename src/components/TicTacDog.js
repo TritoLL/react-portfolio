@@ -25,13 +25,15 @@ const GameContainer = styled.div`
 
 const GameSquare = styled.div`
     box-sizing: border-box;
-
     width: ${mobileTileSize}px;
     height: ${mobileTileSize}px;
     border: ${tileBorderSize}px solid ${(props) => props.theme.border};
     background-color: ${(props) => props.theme.main};
     text-color: ${(props) => props.theme.text};
+
     display: flex;
+    justify-content: center;
+    text-align: center;
 
     :hover {
         background-color: ${(props) => props.theme.border}66;
@@ -57,6 +59,7 @@ const TicTacDog = () => {
         if (img != null) {
             let dog = playersTurn ? "belle" : "mindy";
             img.setAttribute("src", `./images/${dog}.jpg`);
+            img.setAttribute("alt", `${dog}`);
 
             checkForAWin();
         }
