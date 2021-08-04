@@ -59,11 +59,14 @@ const GridContainer = styled.div`
 `;
 
 const GameOverContainer = styled.div`
-    margin: 0 auto;
+    position: absolute;
+    margin: 25px auto;
+    padding: 50px 0px;
     justify-content: center;
     text-align: center;
     font-size: 10vw;
     width: 80%;
+    background-color: ${(props) => props.theme.main}DD;
 
     @media (min-width: 768px) {
         font-size: 8vw;
@@ -192,16 +195,52 @@ const TicTacDog = () => {
         return "";
     };
 
+    const clearAllImages = () => {
+        const allImages = document.querySelectorAll(`${GameSquare} > img`);
+
+        allImages.forEach((img) => {
+            img.setAttribute("src", "");
+            img.setAttribute("alt", "");
+        });
+    };
+
     const restartGame = () => {
+        clearAllImages();
         setWinner("");
         setPlayersTurn(true);
         setGameActive(true);
     };
 
-    let gameComponent;
+    let gameOverPanel;
 
     if (gameActive) {
-        gameComponent = (
+        gameOverPanel = null;
+    } else {
+        gameOverPanel = (
+            <GameOverContainer>
+                {winner} Won!
+                <br />
+                <PlayAgainButton onClick={restartGame}>
+                    Play Again?
+                </PlayAgainButton>
+            </GameOverContainer>
+        );
+    }
+
+    return (
+        <>
+            <GameHeader>
+                <ScoreContainer>
+                    <ScoreImage src="./images/belle.jpg" alt="Belle Score" />
+                    <ScoreText>{belleScore}</ScoreText>
+                </ScoreContainer>
+                <GameTitle>Tic-Tac-Dog</GameTitle>
+                <ScoreContainer>
+                    <ScoreImage src="./images/mindy.jpg" alt="Mindy Score" />
+                    <ScoreText>{mindyScore}</ScoreText>
+                </ScoreContainer>
+            </GameHeader>
+            {gameOverPanel}
             <GridContainer>
                 <GameSquare onClick={squareClicked}>
                     <img src="" alt="" />
@@ -231,33 +270,6 @@ const TicTacDog = () => {
                     <img src="" alt="" />
                 </GameSquare>
             </GridContainer>
-        );
-    } else {
-        gameComponent = (
-            <GameOverContainer>
-                {winner} Won!
-                <br />
-                <PlayAgainButton onClick={restartGame}>
-                    Play Again?
-                </PlayAgainButton>
-            </GameOverContainer>
-        );
-    }
-
-    return (
-        <>
-            <GameHeader>
-                <ScoreContainer>
-                    <ScoreImage src="./images/belle.jpg" alt="Belle Score" />
-                    <ScoreText>{belleScore}</ScoreText>
-                </ScoreContainer>
-                <GameTitle>Tic-Tac-Dog</GameTitle>
-                <ScoreContainer>
-                    <ScoreImage src="./images/mindy.jpg" alt="Mindy Score" />
-                    <ScoreText>{mindyScore}</ScoreText>
-                </ScoreContainer>
-            </GameHeader>
-            {gameComponent}
         </>
     );
 };
