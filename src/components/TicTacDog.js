@@ -5,7 +5,7 @@ const debugging = true;
 const gapSize = 20;
 const tileBorderSize = 5;
 const mobileTileSize = 175;
-const desktopTileSize = 225;
+const desktopTileSize = 200;
 
 const GameTitle = styled.h1`
     font-size: 5vw;
@@ -19,7 +19,6 @@ const GameTitle = styled.h1`
 `;
 
 const GameHeader = styled.div`
-    text-color: ${(props) => props.theme.text};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +26,6 @@ const GameHeader = styled.div`
 `;
 
 const ScoreText = styled.h3`
-    text-color: ${(props) => props.theme.text};
     position: absolute;
     font-size: 5.5em;
     justify-content: center;
@@ -60,6 +58,19 @@ const GridContainer = styled.div`
     }
 `;
 
+const GameOverContainer = styled.div`
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    font-size: 10vw;
+    width: 80%;
+
+    @media (min-width: 768px) {
+        font-size: 8vw;
+        width: 100%;
+    }
+`;
+
 const ScoreContainer = styled.div`
     position: relative;
 `;
@@ -70,7 +81,6 @@ const GameSquare = styled.div`
     height: ${mobileTileSize}px;
     border: ${tileBorderSize}px solid ${(props) => props.theme.border};
     background-color: ${(props) => props.theme.main};
-    text-color: ${(props) => props.theme.text};
 
     display: flex;
     justify-content: center;
@@ -86,11 +96,17 @@ const GameSquare = styled.div`
     }
 `;
 
+const PlayAgainButton = styled.a`
+    text-decoration: underline;
+    cursor: pointer;
+`;
+
 const TicTacDog = () => {
     const [gameActive, setGameActive] = useState(true);
     const [playersTurn, setPlayersTurn] = useState(true);
     const [belleScore, setBelleScore] = useState(0);
     const [mindyScore, setMindyScore] = useState(0);
+    const [winner, setWinner] = useState("");
 
     const squareClicked = (e) => {
         const img = e.target.querySelector("img");
@@ -113,6 +129,7 @@ const TicTacDog = () => {
         if (winner === "") {
             setPlayersTurn(!playersTurn);
         } else {
+            setWinner(winner);
             setGameActive(false);
 
             if (winner === "Belle") {
@@ -175,6 +192,12 @@ const TicTacDog = () => {
         return "";
     };
 
+    const restartGame = () => {
+        setWinner("");
+        setPlayersTurn(true);
+        setGameActive(true);
+    };
+
     let gameComponent;
 
     if (gameActive) {
@@ -210,7 +233,15 @@ const TicTacDog = () => {
             </GridContainer>
         );
     } else {
-        gameComponent = <p>PLAY AGAIN PANEL PLACEHOLDER</p>;
+        gameComponent = (
+            <GameOverContainer>
+                {winner} Won!
+                <br />
+                <PlayAgainButton onClick={restartGame}>
+                    Play Again?
+                </PlayAgainButton>
+            </GameOverContainer>
+        );
     }
 
     return (
