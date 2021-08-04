@@ -137,7 +137,7 @@ const TicTacDog = () => {
 
             if (winner === "Belle") {
                 setBelleScore(belleScore + 1);
-            } else {
+            } else if (winner === "Mindy") {
                 setMindyScore(mindyScore + 1);
             }
         }
@@ -192,7 +192,15 @@ const TicTacDog = () => {
                     : "Mindy";
             }
         }
-        return "";
+
+        // check if all tiles are taken, and if they are, return that the game was a draw
+        let tilesTaken = 0;
+
+        for (let i = 0; i < allImagePaths.length; i++) {
+            tilesTaken += allImagePaths[i] !== "" ? 1 : 0;
+        }
+
+        return tilesTaken === 9 ? "Neither Dog" : "";
     };
 
     const clearAllImages = () => {
