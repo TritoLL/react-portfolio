@@ -8,6 +8,7 @@ const mobileTileSize = 175;
 const desktopTileSize = 200;
 
 const GameTitle = styled.h1`
+    user-select: none;
     font-size: 5vw;
     padding-top: 15px;
     text-align: center;
@@ -23,9 +24,11 @@ const GameHeader = styled.div`
     justify-content: center;
     align-items: center;
     align-text: center;
+    user-select: none;
 `;
 
 const ScoreText = styled.h3`
+    user-select: none;
     position: absolute;
     font-size: 5.5em;
     justify-content: center;
@@ -37,6 +40,7 @@ const ScoreText = styled.h3`
 `;
 
 const ScoreImage = styled.img`
+    user-select: none;
     width: 7em;
     margin: 15px 30px 0px 30px;
     border-radius: 100%;
@@ -45,6 +49,7 @@ const ScoreImage = styled.img`
 `;
 
 const GridContainer = styled.div`
+    user-select: none;
     display: grid;
     box-sizing: border-box;
     grid-column-gap: ${gapSize}px;
@@ -60,6 +65,7 @@ const GridContainer = styled.div`
 `;
 
 const GameOverContainer = styled.div`
+    user-select: none;
     position: absolute;
     margin: 25px auto;
     padding: 50px 0px;
@@ -76,10 +82,12 @@ const GameOverContainer = styled.div`
 `;
 
 const ScoreContainer = styled.div`
+    user-select: none;
     position: relative;
 `;
 
 const GameSquare = styled.div`
+    user-select: none;
     box-sizing: border-box;
     width: ${mobileTileSize}px;
     height: ${mobileTileSize}px;
@@ -101,6 +109,7 @@ const GameSquare = styled.div`
 `;
 
 const PlayAgainButton = styled.a`
+    user-select: none;
     text-decoration: underline;
     cursor: pointer;
 `;
