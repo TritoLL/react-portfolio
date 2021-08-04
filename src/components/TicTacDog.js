@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React, { useContext, useEffect, useState } from "react";
+import styled, { ThemeContext } from "styled-components";
 
 const debugging = true;
 const gapSize = 20;
@@ -40,7 +40,8 @@ const ScoreImage = styled.img`
     width: 7em;
     margin: 15px 30px 0px 30px;
     border-radius: 100%;
-    border: ${tileBorderSize}px solid ${(props) => props.theme.border};
+    border: ${tileBorderSize * 2}px solid
+        ${(props) => (props.active ? props.theme.border : props.theme.main)};
 `;
 
 const GridContainer = styled.div`
@@ -111,6 +112,25 @@ const TicTacDog = () => {
     const [mindyScore, setMindyScore] = useState(0);
     const [winner, setWinner] = useState("");
 
+    const themeContext = useContext(ThemeContext);
+
+    useEffect(() => {
+        const playerImages = document.querySelectorAll(`${ScoreImage}`);
+
+        if (!gameActive) {
+            playerImages[0].style.borderColor = `${themeContext.main}`;
+            playerImages[1].style.borderColor = `${themeContext.main}`;
+        } else {
+            if (playersTurn) {
+                playerImages[0].style.borderColor = `${themeContext.border}`;
+                playerImages[1].style.borderColor = `${themeContext.main}`;
+            } else {
+                playerImages[0].style.borderColor = `${themeContext.main}`;
+                playerImages[1].style.borderColor = `${themeContext.border}`;
+            }
+        }
+    }, [gameActive, playersTurn, themeContext.border, themeContext.main]);
+
     const squareClicked = (e) => {
         const img = e.target.querySelector("img");
         if (gameActive && img != null && (playersTurn || debugging)) {
@@ -121,6 +141,7 @@ const TicTacDog = () => {
     const markSquare = (img) => {
         if (gameActive && img != null) {
             let dog = playersTurn ? "belle" : "mindy";
+
             img.setAttribute("src", `./images/${dog}.jpg`);
             img.setAttribute("alt", `${dog}`);
 
