@@ -9,7 +9,8 @@ const desktopTileSize = 225;
 
 const GameContainer = styled.div`
     display: grid;
-    grid-column-gap: ${gapSize + 2 * tileBorderSize}px;
+    box-sizing: border-box;
+    grid-column-gap: ${gapSize}px;
     grid-row-gap: ${gapSize}px;
     grid-template-columns: repeat(3, ${mobileTileSize}px);
     justify-content: center;
@@ -23,6 +24,8 @@ const GameContainer = styled.div`
 `;
 
 const GameSquare = styled.div`
+    box-sizing: border-box;
+
     width: ${mobileTileSize}px;
     height: ${mobileTileSize}px;
     border: ${tileBorderSize}px solid ${(props) => props.theme.border};
