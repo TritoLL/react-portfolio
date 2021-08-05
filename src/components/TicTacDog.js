@@ -154,12 +154,13 @@ const TicTacDog = () => {
 
     const squareClicked = (e) => {
         const img = e.target.querySelector("img");
+
         if (validMove(img) && (playersTurn || debugging)) {
-            markSquare(img);
+            makeMove(img);
         }
     };
 
-    const markSquare = (img) => {
+    const makeMove = (img) => {
         if (validMove(img)) {
             let dog = playersTurn ? "belle" : "mindy";
 
