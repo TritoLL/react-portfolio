@@ -64,6 +64,7 @@ const GridContainer = styled.div`
 const GameOverContainer = styled.div`
     user-select: none;
     position: absolute;
+    z-index: 1;
     margin: 25px auto;
     padding: 50px 0px;
     width: 100%;
