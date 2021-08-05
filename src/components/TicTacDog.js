@@ -69,15 +69,14 @@ const GameOverContainer = styled.div`
     position: absolute;
     margin: 25px auto;
     padding: 50px 0px;
+    width: 100%;
     justify-content: center;
     text-align: center;
     font-size: 10vw;
-    width: 80%;
     background-color: ${(props) => props.theme.main}DD;
 
     @media (min-width: 768px) {
         font-size: 8vw;
-        width: 100%;
     }
 `;
 
