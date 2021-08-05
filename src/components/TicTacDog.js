@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled, { ThemeContext } from "styled-components";
-import TicTacDogAI from "../classes/TicTacDogAI";
 
 const debugging = true;
 const gapSize = 20;
@@ -215,6 +214,7 @@ const TicTacDog = () => {
             } else {
                 playerImages[0].style.borderColor = `${themeContext.main}`;
                 playerImages[1].style.borderColor = `${themeContext.border}`;
+                // AI takes its turn here
             }
         }
     }, [gameActive, playersTurn, themeContext]);
@@ -238,7 +238,7 @@ const TicTacDog = () => {
         }
     };
 
-    const makeMove = (img, playersTurn) => {
+    const makeMove = (img) => {
         if (validMove(img)) {
             let dog = playersTurn ? "belle" : "mindy";
 
