@@ -4,6 +4,7 @@ import styled, { ThemeContext } from "styled-components";
 const debugging = true;
 const gapSize = 20;
 const tileBorderSize = 5;
+const noImage = "./images/blank.gif";
 
 const GameTitle = styled.h1`
     user-select: none;
@@ -149,7 +150,7 @@ const TicTacDog = () => {
     }, [gameActive, playersTurn, themeContext.border, themeContext.main]);
 
     const validMove = (img) => {
-        return gameActive && img != null && img.getAttribute("src") === "";
+        return gameActive && img != null && img.getAttribute("src") === noImage;
     };
 
     const squareClicked = (e) => {
@@ -212,9 +213,9 @@ const TicTacDog = () => {
         for (let i = 0; i < winningCombinations.length; i++) {
             // if any of the squares we are checking are empty, check the next combination immediately
             if (
-                allImagePaths[winningCombinations[i][0]] === "" ||
-                allImagePaths[winningCombinations[i][1]] === "" ||
-                allImagePaths[winningCombinations[i][2]] === ""
+                allImagePaths[winningCombinations[i][0]] === noImage ||
+                allImagePaths[winningCombinations[i][1]] === noImage ||
+                allImagePaths[winningCombinations[i][2]] === noImage
             ) {
                 continue;
             }
@@ -240,7 +241,7 @@ const TicTacDog = () => {
         let tilesTaken = 0;
 
         for (let i = 0; i < allImagePaths.length; i++) {
-            tilesTaken += allImagePaths[i] !== "" ? 1 : 0;
+            tilesTaken += allImagePaths[i] !== noImage ? 1 : 0;
         }
 
         return tilesTaken === 9 ? "Neither Dog" : "";
@@ -250,7 +251,7 @@ const TicTacDog = () => {
         const allImages = document.querySelectorAll(`${GameSquare} > img`);
 
         allImages.forEach((img) => {
-            img.setAttribute("src", "");
+            img.setAttribute("src", noImage);
             img.setAttribute("alt", "");
         });
     };
@@ -294,31 +295,31 @@ const TicTacDog = () => {
             {gameOverPanel}
             <GridContainer>
                 <GameSquare onClick={squareClicked}>
-                    <img src="" alt="" />
+                    <img src={noImage} alt="" />
                 </GameSquare>
                 <GameSquare onClick={squareClicked}>
-                    <img src="" alt="" />
+                    <img src={noImage} alt="" />
                 </GameSquare>
                 <GameSquare onClick={squareClicked}>
-                    <img src="" alt="" />
+                    <img src={noImage} alt="" />
                 </GameSquare>
                 <GameSquare onClick={squareClicked}>
-                    <img src="" alt="" />
+                    <img src={noImage} alt="" />
                 </GameSquare>
                 <GameSquare onClick={squareClicked}>
-                    <img src="" alt="" />
+                    <img src={noImage} alt="" />
                 </GameSquare>
                 <GameSquare onClick={squareClicked}>
-                    <img src="" alt="" />
+                    <img src={noImage} alt="" />
                 </GameSquare>
                 <GameSquare onClick={squareClicked}>
-                    <img src="" alt="" />
+                    <img src={noImage} alt="" />
                 </GameSquare>
                 <GameSquare onClick={squareClicked}>
-                    <img src="" alt="" />
+                    <img src={noImage} alt="" />
                 </GameSquare>
                 <GameSquare onClick={squareClicked}>
-                    <img src="" alt="" />
+                    <img src={noImage} alt="" />
                 </GameSquare>
             </GridContainer>
         </>
