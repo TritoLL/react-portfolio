@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import styled, { ThemeContext } from "styled-components";
+import TicTacDogAI from "../classes/TicTacDogAI";
 
-const debugging = true;
+const debugging = false;
 const gapSize = 20;
 const tileBorderSize = 5;
 const noImage = "./images/blank.gif";
@@ -43,8 +44,7 @@ const ScoreImage = styled.img`
     width: 6em;
     margin: 10px 10px 0 10px;
     border-radius: 100%;
-    border: ${tileBorderSize * 2}px solid
-        ${(props) => (props.active ? props.theme.border : props.theme.main)};
+    border: ${tileBorderSize * 2}px solid ${(props) => props.theme.border};
 `;
 
 const GridContainer = styled.div`
@@ -193,15 +193,15 @@ const findNameOfWinner = () => {
 };
 
 const TicTacDog = () => {
+    let playersTurn = true;
     const [gameActive, setGameActive] = useState(true);
-    const [playersTurn, setPlayersTurn] = useState(true);
     const [belleScore, setBelleScore] = useState(0);
     const [mindyScore, setMindyScore] = useState(0);
     const [winner, setWinner] = useState("");
 
     const themeContext = useContext(ThemeContext);
 
-    useEffect(() => {
+    const changeTurnIndicator = () => {
         const playerImages = document.querySelectorAll(`${ScoreImage}`);
 
         if (!gameActive) {
@@ -214,18 +214,22 @@ const TicTacDog = () => {
             } else {
                 playerImages[0].style.borderColor = `${themeContext.main}`;
                 playerImages[1].style.borderColor = `${themeContext.border}`;
-                // AI takes its turn here
             }
         }
-    }, [gameActive, playersTurn, themeContext]);
+    };
 
     const validMove = (img) => {
         return gameActive && img != null && img.getAttribute("src") === noImage;
     };
 
-    const endTurn = (winner) => {
+    const endTurn = async (winner) => {
         if (winner === "") {
-            setPlayersTurn(!playersTurn);
+            playersTurn = !playersTurn;
+            changeTurnIndicator();
+            if (!playersTurn) {
+                let img = await TicTacDogAI.makeMove(allGameSquareImages());
+                makeMove(img);
+            }
         } else {
             setWinner(winner);
             setGameActive(false);
@@ -259,8 +263,8 @@ const TicTacDog = () => {
 
     const restartGame = () => {
         clearAllImages();
+        playersTurn = true;
         setWinner("");
-        setPlayersTurn(true);
         setGameActive(true);
     };
 

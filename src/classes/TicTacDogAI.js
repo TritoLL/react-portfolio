@@ -1,5 +1,5 @@
 // milliseconds
-const moveDelay = 650;
+const moveDelay = 1000;
 
 class TicTacDogAI {
     static makeMove = async (images) => {
