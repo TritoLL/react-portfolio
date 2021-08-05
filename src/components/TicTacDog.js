@@ -56,6 +56,7 @@ const GridContainer = styled.div`
     justify-content: center;
     margin: 0 auto;
     padding: 15px 0 0 0;
+    width: 90%;
 
     @media (min-width: 768px) {
         grid-template-columns: repeat(3, minmax(200px, 10%));
