@@ -125,6 +125,74 @@ const PlayAgainButton = styled.a`
     cursor: pointer;
 `;
 
+const allImages = () => {
+    return document.querySelectorAll(`${GameSquare} > img`);
+};
+
+const allImagePaths = () => {
+    return [...allImages()].map((img) => img.getAttribute("src"));
+};
+
+const clearAllImages = () => {
+    allImages().forEach((img) => {
+        img.setAttribute("src", noImage);
+        img.setAttribute("alt", "");
+    });
+};
+
+const findNameOfWinner = () => {
+    // find the "src" attribute of all images
+    const imagePaths = allImagePaths();
+
+    //[0][1][2]
+    //[3][4][5]
+    //[6][7][8]
+    const winningCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+    ];
+
+    for (let i = 0; i < winningCombinations.length; i++) {
+        // if any of the squares we are checking are empty, check the next combination immediately
+        if (
+            imagePaths[winningCombinations[i][0]] === noImage ||
+            imagePaths[winningCombinations[i][1]] === noImage ||
+            imagePaths[winningCombinations[i][2]] === noImage
+        ) {
+            continue;
+        }
+
+        // check for a win
+        let result =
+            imagePaths[winningCombinations[i][0]] ===
+                imagePaths[winningCombinations[i][1]] &&
+            imagePaths[winningCombinations[i][1]] ===
+                imagePaths[winningCombinations[i][2]];
+
+        // if someone won, find out who it was and break out of the loop
+        if (result) {
+            return imagePaths[winningCombinations[i][0]].includes("belle")
+                ? "Belle"
+                : "Mindy";
+        }
+    }
+
+    // check if all tiles are taken, and if they are, return that the game was a draw
+    let tilesTaken = 0;
+
+    for (let i = 0; i < imagePaths.length; i++) {
+        tilesTaken += imagePaths[i] !== noImage ? 1 : 0;
+    }
+
+    return tilesTaken === 9 ? "Neither Dog" : "";
+};
+
 const TicTacDog = () => {
     const [gameActive, setGameActive] = useState(true);
     const [playersTurn, setPlayersTurn] = useState(true);
@@ -133,10 +201,6 @@ const TicTacDog = () => {
     const [winner, setWinner] = useState("");
 
     const themeContext = useContext(ThemeContext);
-
-    const allImages = () => {
-        return document.querySelectorAll(`${GameSquare} > img`);
-    };
 
     useEffect(() => {
         const playerImages = document.querySelectorAll(`${ScoreImage}`);
@@ -151,32 +215,12 @@ const TicTacDog = () => {
             } else {
                 playerImages[0].style.borderColor = `${themeContext.main}`;
                 playerImages[1].style.borderColor = `${themeContext.border}`;
-                TicTacDogAI.makeMove(allImages);
             }
         }
-    }, [gameActive, playersTurn, themeContext.border, themeContext.main]);
+    }, [gameActive, playersTurn, themeContext]);
 
     const validMove = (img) => {
         return gameActive && img != null && img.getAttribute("src") === noImage;
-    };
-
-    const squareClicked = (e) => {
-        const img = e.target.querySelector("img");
-
-        if (validMove(img) && (playersTurn || debugging)) {
-            makeMove(img);
-        }
-    };
-
-    const makeMove = (img) => {
-        if (validMove(img)) {
-            let dog = playersTurn ? "belle" : "mindy";
-
-            img.setAttribute("src", `./images/${dog}.jpg`);
-            img.setAttribute("alt", `${dog}`);
-
-            endTurn(findNameOfWinner());
-        }
     };
 
     const endTurn = (winner) => {
@@ -194,68 +238,23 @@ const TicTacDog = () => {
         }
     };
 
-    const findNameOfWinner = () => {
-        // find the "src" attribute of all images
-        const allImagePaths = [...allImages()].map((img) =>
-            img.getAttribute("src")
-        );
+    const makeMove = (img, playersTurn) => {
+        if (validMove(img)) {
+            let dog = playersTurn ? "belle" : "mindy";
 
-        //[0][1][2]
-        //[3][4][5]
-        //[6][7][8]
-        const winningCombinations = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6],
-        ];
+            img.setAttribute("src", `./images/${dog}.jpg`);
+            img.setAttribute("alt", `${dog}`);
 
-        for (let i = 0; i < winningCombinations.length; i++) {
-            // if any of the squares we are checking are empty, check the next combination immediately
-            if (
-                allImagePaths[winningCombinations[i][0]] === noImage ||
-                allImagePaths[winningCombinations[i][1]] === noImage ||
-                allImagePaths[winningCombinations[i][2]] === noImage
-            ) {
-                continue;
-            }
-
-            // check for a win
-            let result =
-                allImagePaths[winningCombinations[i][0]] ===
-                    allImagePaths[winningCombinations[i][1]] &&
-                allImagePaths[winningCombinations[i][1]] ===
-                    allImagePaths[winningCombinations[i][2]];
-
-            // if someone won, find out who it was and break out of the loop
-            if (result) {
-                return allImagePaths[winningCombinations[i][0]].includes(
-                    "belle"
-                )
-                    ? "Belle"
-                    : "Mindy";
-            }
+            endTurn(findNameOfWinner());
         }
-
-        // check if all tiles are taken, and if they are, return that the game was a draw
-        let tilesTaken = 0;
-
-        for (let i = 0; i < allImagePaths.length; i++) {
-            tilesTaken += allImagePaths[i] !== noImage ? 1 : 0;
-        }
-
-        return tilesTaken === 9 ? "Neither Dog" : "";
     };
 
-    const clearAllImages = () => {
-        allImages().forEach((img) => {
-            img.setAttribute("src", noImage);
-            img.setAttribute("alt", "");
-        });
+    const squareClicked = (e) => {
+        const img = e.target.querySelector("img");
+
+        if (validMove(img) && (playersTurn || debugging)) {
+            makeMove(img, playersTurn);
+        }
     };
 
     const restartGame = () => {

@@ -2,9 +2,9 @@
 const moveDelay = 650;
 
 class TicTacDogAI {
-    static makeMove = async () => {
+    static makeMove = async (images) => {
         await new Promise((r) => setTimeout(r, moveDelay));
-        return 1;
+        return images[0];
     };
 }
 
