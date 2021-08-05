@@ -125,16 +125,16 @@ const PlayAgainButton = styled.a`
     cursor: pointer;
 `;
 
-const allImages = () => {
+const allGameSquareImages = () => {
     return document.querySelectorAll(`${GameSquare} > img`);
 };
 
-const allImagePaths = () => {
-    return [...allImages()].map((img) => img.getAttribute("src"));
+const allGameSquareImagePaths = () => {
+    return [...allGameSquareImages()].map((img) => img.getAttribute("src"));
 };
 
 const clearAllImages = () => {
-    allImages().forEach((img) => {
+    allGameSquareImages().forEach((img) => {
         img.setAttribute("src", noImage);
         img.setAttribute("alt", "");
     });
@@ -142,7 +142,7 @@ const clearAllImages = () => {
 
 const findNameOfWinner = () => {
     // find the "src" attribute of all images
-    const imagePaths = allImagePaths();
+    const imagePaths = allGameSquareImagePaths();
 
     //[0][1][2]
     //[3][4][5]
