@@ -148,15 +148,19 @@ const TicTacDog = () => {
         }
     }, [gameActive, playersTurn, themeContext.border, themeContext.main]);
 
+    const validMove = (img) => {
+        return gameActive && img != null && img.getAttribute("src") === "";
+    };
+
     const squareClicked = (e) => {
         const img = e.target.querySelector("img");
-        if (gameActive && img != null && (playersTurn || debugging)) {
+        if (validMove(img) && (playersTurn || debugging)) {
             markSquare(img);
         }
     };
 
     const markSquare = (img) => {
-        if (gameActive && img != null) {
+        if (validMove(img)) {
             let dog = playersTurn ? "belle" : "mindy";
 
             img.setAttribute("src", `./images/${dog}.jpg`);
