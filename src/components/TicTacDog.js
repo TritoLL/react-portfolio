@@ -4,8 +4,6 @@ import styled, { ThemeContext } from "styled-components";
 const debugging = true;
 const gapSize = 20;
 const tileBorderSize = 5;
-const mobileTileSize = 175;
-const desktopTileSize = 200;
 
 const GameTitle = styled.h1`
     user-select: none;
@@ -51,16 +49,15 @@ const ScoreImage = styled.img`
 const GridContainer = styled.div`
     user-select: none;
     display: grid;
-    box-sizing: border-box;
     grid-column-gap: ${gapSize}px;
     grid-row-gap: ${gapSize}px;
-    grid-template-columns: repeat(3, ${mobileTileSize}px);
+    grid-template-columns: repeat(3, minmax(30%, 1fr));
     justify-content: center;
     margin: 0 auto;
     padding: 15px;
 
     @media (min-width: 768px) {
-        grid-template-columns: repeat(3, ${desktopTileSize}px);
+        grid-template-columns: repeat(3, minmax(200px, 10%));
     }
 `;
 
@@ -87,23 +84,34 @@ const ScoreContainer = styled.div`
 
 const GameSquare = styled.div`
     user-select: none;
+    position: relative;
     box-sizing: border-box;
-    width: ${mobileTileSize}px;
-    height: ${mobileTileSize}px;
     border: ${tileBorderSize}px solid ${(props) => props.theme.border};
     background-color: ${(props) => props.theme.main};
-
-    display: flex;
     justify-content: center;
     text-align: center;
+
+    ::before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+        pointer-events: none;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
 
     :hover {
         background-color: ${(props) => props.theme.border}66;
     }
 
     @media (min-width: 768px) {
-        width: ${desktopTileSize}px;
-        height: ${desktopTileSize}px;
     }
 `;
 
