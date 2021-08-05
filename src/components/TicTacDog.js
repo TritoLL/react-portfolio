@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled, { ThemeContext } from "styled-components";
+import TicTacDogAI from "../classes/TicTacDogAI";
 
 const debugging = true;
 const gapSize = 20;
@@ -133,6 +134,10 @@ const TicTacDog = () => {
 
     const themeContext = useContext(ThemeContext);
 
+    const allImages = () => {
+        return document.querySelectorAll(`${GameSquare} > img`);
+    };
+
     useEffect(() => {
         const playerImages = document.querySelectorAll(`${ScoreImage}`);
 
@@ -146,6 +151,7 @@ const TicTacDog = () => {
             } else {
                 playerImages[0].style.borderColor = `${themeContext.main}`;
                 playerImages[1].style.borderColor = `${themeContext.border}`;
+                TicTacDogAI.makeMove(allImages);
             }
         }
     }, [gameActive, playersTurn, themeContext.border, themeContext.main]);
@@ -189,11 +195,8 @@ const TicTacDog = () => {
     };
 
     const findNameOfWinner = () => {
-        // find all of the images
-        const allImages = document.querySelectorAll(`${GameSquare} > img`);
-
         // find the "src" attribute of all images
-        const allImagePaths = [...allImages].map((img) =>
+        const allImagePaths = [...allImages()].map((img) =>
             img.getAttribute("src")
         );
 
@@ -249,9 +252,7 @@ const TicTacDog = () => {
     };
 
     const clearAllImages = () => {
-        const allImages = document.querySelectorAll(`${GameSquare} > img`);
-
-        allImages.forEach((img) => {
+        allImages().forEach((img) => {
             img.setAttribute("src", noImage);
             img.setAttribute("alt", "");
         });
