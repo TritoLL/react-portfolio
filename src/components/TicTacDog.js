@@ -41,7 +41,7 @@ const ScoreText = styled.h3`
 const ScoreImage = styled.img`
     user-select: none;
     width: 6em;
-    margin: 15px 20px 0px 20px;
+    margin: 10px 10px 0 10px;
     border-radius: 100%;
     border: ${tileBorderSize * 2}px solid
         ${(props) => (props.active ? props.theme.border : props.theme.main)};
@@ -55,7 +55,7 @@ const GridContainer = styled.div`
     grid-template-columns: repeat(3, minmax(30%, 1fr));
     justify-content: center;
     margin: 0 auto;
-    padding: 15px 0 0 0;
+    padding: 10px 0 0 0;
     width: 90%;
 
     @media (min-width: 768px) {
