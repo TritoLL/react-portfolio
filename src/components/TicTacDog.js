@@ -39,8 +39,8 @@ const ScoreText = styled.h3`
 
 const ScoreImage = styled.img`
     user-select: none;
-    width: 7em;
-    margin: 15px 30px 0px 30px;
+    width: 6em;
+    margin: 15px 20px 0px 20px;
     border-radius: 100%;
     border: ${tileBorderSize * 2}px solid
         ${(props) => (props.active ? props.theme.border : props.theme.main)};
