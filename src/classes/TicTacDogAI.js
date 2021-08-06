@@ -22,8 +22,27 @@ class TicTacDogAI {
         );
     };
 
+    static #takeOppositeCorner = (squares) => {
+        let cornerIndexes = [0, 2, 6, 8];
+        let oppositeCornerIndex = [];
+
+        for (let i = 0; i < cornerIndexes.length; i++) {
+            if (
+                squares[cornerIndexes[i]] !== null &&
+                squares[cornerIndexes[cornerIndexes.length - 1 - i]] === null
+            ) {
+                oppositeCornerIndex.push(
+                    cornerIndexes[cornerIndexes.length - 1 - i]
+                );
+                break;
+            }
+        }
+
+        return oppositeCornerIndex;
+    };
+
     static #canWinOrBlock = (squares) => {
-        let winningSquare = [];
+        let squareIndex = [];
 
         for (let i = 0; i < winningCombinations.length; i++) {
             // we want to check every combination of the three squares...
@@ -41,7 +60,7 @@ class TicTacDogAI {
                             squares[winningCombinations[i][indexes[1]]] &&
                         squares[winningCombinations[i][indexes[2]]] === null
                     ) {
-                        winningSquare.push(winningCombinations[i][indexes[2]]);
+                        squareIndex.push(winningCombinations[i][indexes[2]]);
                         break;
                     }
                 }
@@ -52,7 +71,7 @@ class TicTacDogAI {
             }
         }
 
-        return winningSquare;
+        return squareIndex;
     };
 
     static #isCenterSquareValid = (squares) => {
@@ -93,8 +112,9 @@ class TicTacDogAI {
         let moveToTake = 0;
         let moveList = [
             this.#canWinOrBlock,
-            this.#findValidCornerSquareIndexes,
+            this.#takeOppositeCorner,
             this.#isCenterSquareValid,
+            this.#findValidCornerSquareIndexes,
             this.#findAllValidSquareIndexes,
         ];
 
