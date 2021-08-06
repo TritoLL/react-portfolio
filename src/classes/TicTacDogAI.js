@@ -93,8 +93,8 @@ class TicTacDogAI {
         let moveToTake = 0;
         let moveList = [
             this.#canWinOrBlock,
-            this.#isCenterSquareValid,
             this.#findValidCornerSquareIndexes,
+            this.#isCenterSquareValid,
             this.#findAllValidSquareIndexes,
         ];
 
