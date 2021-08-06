@@ -57,8 +57,8 @@ const ScoreImage = styled.img`
     user-select: none;
     width: 6em;
     margin: 10px 10px 0 10px;
-    border-radius: 100%;
-    border: ${tileBorderSize * 2}px solid ${(props) => props.theme.border};
+    border-radius: 0%;
+    border: ${tileBorderSize}px solid ${(props) => props.theme.border};
 `;
 
 const GridContainer = styled.div`
@@ -199,23 +199,22 @@ const TicTacDog = () => {
     const [mindyScore, setMindyScore] = useState(0);
     const [winner, setWinner] = useState("");
 
-    const themeContext = useContext(ThemeContext);
-
     const changeTurnIndicator = () => {
+        /*
         const playerImages = document.querySelectorAll(`${ScoreImage}`);
 
         if (!gameActive) {
-            playerImages[0].style.borderColor = `${themeContext.main}`;
-            playerImages[1].style.borderColor = `${themeContext.main}`;
+            playerImages[0].style.borderWidth = `${tileBorderSize}px`;
+            playerImages[1].style.borderWidth = `${tileBorderSize}px`;
         } else {
             if (playersTurn) {
-                playerImages[0].style.borderColor = `${themeContext.border}`;
-                playerImages[1].style.borderColor = `${themeContext.main}`;
+                playerImages[0].style.borderWidth = `${tileBorderSize * 2}px`;
+                playerImages[1].style.borderWidth = `${tileBorderSize}px`;
             } else {
-                playerImages[0].style.borderColor = `${themeContext.main}`;
-                playerImages[1].style.borderColor = `${themeContext.border}`;
+                playerImages[0].style.borderWidth = `${tileBorderSize}px`;
+                playerImages[1].style.borderWidth = `${tileBorderSize * 2}px`;
             }
-        }
+        }*/
     };
 
     const validMove = (img) => {
