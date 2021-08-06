@@ -42,7 +42,8 @@ class TicTacDogAI {
     };
 
     static #canWinOrBlock = (squares) => {
-        let squareIndex = [];
+        let winIndex = [];
+        let blockIndex = [];
 
         for (let i = 0; i < winningCombinations.length; i++) {
             // we want to check every combination of the three squares...
@@ -60,8 +61,14 @@ class TicTacDogAI {
                             squares[winningCombinations[i][indexes[1]]] &&
                         squares[winningCombinations[i][indexes[2]]] === null
                     ) {
-                        squareIndex.push(winningCombinations[i][indexes[2]]);
-                        break;
+                        // true = mindy, so if this is true, it's the AI, which means we should take the win
+                        if (squares[winningCombinations[i][indexes[0]]]) {
+                            winIndex.push(winningCombinations[i][indexes[2]]);
+                            break;
+                        } else {
+                            blockIndex.push(winningCombinations[i][indexes[2]]);
+                            // not breaking here as we might not win but have multiple blocks to choose from
+                        }
                     }
                 }
 
@@ -71,7 +78,7 @@ class TicTacDogAI {
             }
         }
 
-        return squareIndex;
+        return winIndex.length > 0 ? winIndex : blockIndex;
     };
 
     static #isCenterSquareValid = (squares) => {
