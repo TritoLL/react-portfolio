@@ -48,8 +48,9 @@ export const DivNoMobile = styled.div`
 
 export const HeaderFooter = styled.header`
     background-color: ${(props) => props.theme.main};
-    padding: 10px 0px;
+    margin: 10px 0px;
     width: 100%;
+    height: auto;
     margin: 0 auto;
 `;
 

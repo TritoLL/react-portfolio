@@ -5,6 +5,7 @@ import { HeaderFooter, MobileIconsContainer } from "../styles/CustomStyles";
 
 const CustomFooter = styled(HeaderFooter)`
     border-top: 7px solid ${(props) => props.theme.border};
+    padding: 15px 0px;
 `;
 
 const Footer = () => {

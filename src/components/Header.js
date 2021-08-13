@@ -9,26 +9,37 @@ import NavigationMenu from "./NavigationMenu";
 
 const CustomHeader = styled(HeaderFooter)`
     border-bottom: 7px solid ${(props) => props.theme.border};
+    display: flex;
+    flex-direction: column;
 
     a {
         text-decoration: none;
     }
 `;
 
+const HeaderTopLayer = styled.div`
+    position: relative;
+    background-color: ${(props) => props.theme.main};
+    z-index: 3;
+    padding: 10px 0;
+`;
+
 const Header = ({ theme, toggleTheme }) => {
     return (
         <CustomHeader>
-            <h1>
-                <Link to="/">Alex Friesen</Link>
-            </h1>
+            <HeaderTopLayer>
+                <h1>
+                    <Link to="/">Alex Friesen</Link>
+                </h1>
 
-            <h2>
-                <FlavorTextRotator />
-            </h2>
-            <MobileIconsContainer>
-                <HeaderControls theme={theme} toggleTheme={toggleTheme} />
-                <IconLinks />
-            </MobileIconsContainer>
+                <h2>
+                    <FlavorTextRotator />
+                </h2>
+                <MobileIconsContainer>
+                    <HeaderControls theme={theme} toggleTheme={toggleTheme} />
+                    <IconLinks />
+                </MobileIconsContainer>
+            </HeaderTopLayer>
             <NavigationMenu />
         </CustomHeader>
     );
