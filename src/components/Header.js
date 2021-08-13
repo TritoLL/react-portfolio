@@ -21,7 +21,7 @@ const HeaderTopLayer = styled.div`
     position: relative;
     background-color: ${(props) => props.theme.main};
     z-index: 3;
-    padding: 10px 0;
+    padding: 10px;
 `;
 
 const Header = ({ theme, toggleTheme }) => {
