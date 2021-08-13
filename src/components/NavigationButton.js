@@ -1,7 +1,14 @@
-import { FiMenu } from "react-icons/fi";
+import { RiMenuUnfoldFill, RiMenuFoldFill } from "react-icons/ri";
 
 const NavigationButton = ({ iconSize = 50 }) => {
-    return <FiMenu size={iconSize} />;
+    return (
+        <RiMenuUnfoldFill
+            size={iconSize}
+            onClick={() => {
+                console.log("Menu Button Clicked.");
+            }}
+        />
+    );
 };
 
 export default NavigationButton;
