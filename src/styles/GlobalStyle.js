@@ -69,13 +69,6 @@ export const GlobalStyle = createGlobalStyle`
     .header-controls {
         display: flex;
         justify-content: center;
-
-        @media (min-width: 768px)
-        {
-            svg {
-                padding: 0px 5px;
-            }
-        }
     }
 
     @media (min-width: 768px) {
@@ -83,15 +76,24 @@ export const GlobalStyle = createGlobalStyle`
             position: absolute;
             top: 35px;
         }
+
+        .icon-links svg,
+        .header-controls svg {
+            padding: 0px 5px;
+        }
+
         header .icon-links {
             right: 1%;
         }
+
         header .header-controls {
             left: 1%;
         }
+
         header h1 {
             font-size: 3em;
         }
+
         header h2 {
             display: block;
         }
