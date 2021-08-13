@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import IconLinks from "./IconLinks";
-import ThemeToggler from "./ThemeToggler";
 import FlavorTextRotator from "./FlavorTextRotator";
 import { Link } from "react-router-dom";
 import { HeaderFooter, MobileIconsContainer } from "../styles/CustomStyles";
+import HeaderControls from "./HeaderControls";
 
 const CustomHeader = styled(HeaderFooter)`
     border-bottom: 7px solid ${(props) => props.theme.border};
@@ -25,7 +25,7 @@ const Header = ({ theme, toggleTheme }) => {
                 <FlavorTextRotator />
             </h2>
             <MobileIconsContainer>
-                <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
+                <HeaderControls theme={theme} toggleTheme={toggleTheme} />
                 <IconLinks />
             </MobileIconsContainer>
         </CustomHeader>

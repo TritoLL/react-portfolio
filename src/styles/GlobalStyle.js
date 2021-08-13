@@ -66,20 +66,27 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .icon-links,
-    .theme-toggler {
+    .header-controls {
         display: flex;
         justify-content: center;
+
+        @media (min-width: 768px)
+        {
+            svg {
+                padding: 0px 5px;
+            }
+        }
     }
 
     @media (min-width: 768px) {
-        header .icon-links {
+        header .icon-links, header .header-controls {
             position: absolute;
             top: 35px;
+        }
+        header .icon-links {
             right: 1%;
         }
-        header .theme-toggler {
-            position: absolute;
-            top: 35px;
+        header .header-controls {
             left: 1%;
         }
         header h1 {
