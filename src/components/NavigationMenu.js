@@ -50,15 +50,25 @@ const NavListItem = styled.ul`
     }
 `;
 
+const FullLengthLink = styled.div`
+    @media (min-width: 768px) {
+        display: inline;
+    }
+`;
+
 const NavigationMenu = () => {
     return (
         <Nav id="main-navigation">
             <NavList>
                 <NavListItem>
-                    <Link to="">Home</Link>
+                    <Link to="">
+                        <FullLengthLink>Home</FullLengthLink>
+                    </Link>
                 </NavListItem>
                 <NavListItem>
-                    <Link to="tic-tac-dog">Tic-Tac-Dog</Link>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
                 </NavListItem>
             </NavList>
         </Nav>
