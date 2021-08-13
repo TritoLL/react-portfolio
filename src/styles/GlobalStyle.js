@@ -22,26 +22,24 @@ export const GlobalStyle = createGlobalStyle`
     a:active,
     a:focus,
     a:visited,
-    a:hover > *,
-    a:active > *,
-    a:focus > *,
-    a:visited > *,
-    a:hover > svg > path,
-    a:active > svg > path,
-    a:focus > svg > path,
-    a:visited > svg > path,
-    svg:hover > path,
-    svg:active > path,
-    svg:focus > path,   
-    button:hover > svg > path,
-    button:active > svg > path,
-    button:focus > svg > path {
+    svg:hover,
+    svg:active,
+    svg:focus,   
+    button:hover,
+    button:active,
+    button:focus {
+        cursor: pointer;
         color: ${(props) => props.theme.border};
+
+        *
+        {
+            color: ${(props) => props.theme.border};
+        }
     }
 
-    button:active > svg > path,
-    svg:active > path {
-        color: ${(props) => props.theme.main};
+    button:active > svg > *,
+    svg:active > * {
+        color: ${(props) => props.theme.body};
     }
 
     body {

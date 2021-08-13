@@ -10,6 +10,7 @@ const IconBox = styled.div`
     justify-content: center;
 
     * {
+        cursor: default !important;
         padding: 0px 15px;
     }
 `;
