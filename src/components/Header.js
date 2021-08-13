@@ -5,6 +5,7 @@ import FlavorTextRotator from "./FlavorTextRotator";
 import { Link } from "react-router-dom";
 import { HeaderFooter, MobileIconsContainer } from "../styles/CustomStyles";
 import HeaderControls from "./HeaderControls";
+import NavigationMenu from "./NavigationMenu";
 
 const CustomHeader = styled(HeaderFooter)`
     border-bottom: 7px solid ${(props) => props.theme.border};
@@ -28,6 +29,7 @@ const Header = ({ theme, toggleTheme }) => {
                 <HeaderControls theme={theme} toggleTheme={toggleTheme} />
                 <IconLinks />
             </MobileIconsContainer>
+            <NavigationMenu />
         </CustomHeader>
     );
 };
