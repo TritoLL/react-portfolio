@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Nav = styled.nav`
-    //margin: 20px 0 0 0;
-    //padding: 20px 0px;
     display: block;
     position: relative;
     transition: 0.5s;
@@ -21,8 +19,9 @@ const NavList = styled.ul`
 const NavListItem = styled.ul`
     text-decoration: none;
     font-weight: bold;
-    font-size: 4vw;
+    font-size: 1.8em;
     padding: 0px 15px;
+    text-shadow: 2px 2px 2px ${(props) => props.theme.body};
 
     :not(:first-of-type)::before {
         content: "";
@@ -31,7 +30,7 @@ const NavListItem = styled.ul`
     }
 
     @media (min-width: 768px) {
-        font-size: 1.5vw;
+        font-size: 1.7em;
     }
 `;
 
