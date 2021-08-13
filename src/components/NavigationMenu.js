@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Nav = styled.nav`
     display: block;
     position: relative;
-    transition: 0.5s;
+    transition: 0.5s !important;
     top: -100px;
 `;
 

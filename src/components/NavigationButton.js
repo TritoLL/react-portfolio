@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { RiMenuUnfoldFill, RiMenuFoldFill } from "react-icons/ri";
+import { ImMenu3, ImMenu4 } from "react-icons/im";
 
 const NavigationButton = ({ iconSize = 50 }) => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const Icon = menuOpen ? RiMenuFoldFill : RiMenuUnfoldFill;
+    const Icon = menuOpen ? ImMenu4 : ImMenu3;
 
     useEffect(() => {
         const nav = document.querySelector("#main-navigation");
