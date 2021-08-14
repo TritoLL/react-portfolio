@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ImMenu3, ImMenu4 } from "react-icons/im";
 
-// collapse and expand code is thanks to: https://css-tricks.com/using-css-transitions-auto-dimensions/
+// collapse and expand code slightly modified from: https://css-tricks.com/using-css-transitions-auto-dimensions/
 
 const collapseElement = (element) => {
     // get the height of the element's inner content, regardless of its actual size
@@ -37,9 +37,6 @@ const expandElement = (element) => {
     element.addEventListener("transitionend", function endTransition(e) {
         // remove this event listener so it only gets triggered once
         element.removeEventListener("transitionend", endTransition);
-
-        // remove "height" from the element's inline styles, so it can return to its initial value
-        element.style.height = null;
     });
 };
 

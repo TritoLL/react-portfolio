@@ -7,6 +7,7 @@ const Nav = styled.nav`
     margin: 0;
     transition: 0.5s !important;
     top: -100px;
+    height: 0px;
 `;
 
 const NavList = styled.ul`
