@@ -54,7 +54,8 @@ const NavigationButton = ({ iconSize = 50 }) => {
                 collapseElement(nav);
             }
 
-            nav.style.top = menuOpen ? "0px" : "-100px";
+            // always hide the nav off screen no matter how high it is, plus a little extra to account for text shadows etc...
+            nav.style.top = menuOpen ? "0px" : -nav.scrollHeight * 1.05 + "px";
             nav.style.margin = menuOpen ? "0 0 10px 0" : "0px";
         }
     }, [menuOpen]);

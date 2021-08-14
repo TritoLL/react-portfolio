@@ -6,7 +6,7 @@ const Nav = styled.nav`
     padding: -10px 0 0 0;
     margin: 0;
     transition: 0.5s !important;
-    top: -100px;
+    top: -25%;
     height: 0px;
 `;
 
