@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { ImMenu3, ImMenu4 } from "react-icons/im";
 
-// collapse and expand code slightly modified from: https://css-tricks.com/using-css-transitions-auto-dimensions/
+// collapse and expand code modified from: https://css-tricks.com/using-css-transitions-auto-dimensions/
 
-const collapseElement = (element) => {
+const collapseNavigation = (element) => {
     // get the height of the element's inner content, regardless of its actual size
     var sectionHeight = element.scrollHeight;
 
@@ -30,11 +30,12 @@ const collapseElement = (element) => {
         // remove this event listener so it only gets triggered once
         element.removeEventListener("transitionend", endTransition);
 
-        element.style.visibility = "hidden";
+        // hide the navigation menu, but only if it has slid off the page (this prevents double-clicking the button quickly from breaking the menu)
+        if (element.style.top !== "0px") element.style.visibility = "hidden";
     });
 };
 
-const expandElement = (element) => {
+const expandNavigation = (element) => {
     element.style.visibility = "visible";
 
     // get the height of the element's inner content, regardless of its actual size
@@ -48,8 +49,8 @@ const expandElement = (element) => {
         // remove this event listener so it only gets triggered once
         element.removeEventListener("transitionend", endTransition);
 
-        // set the height back to auto in case of media queries etc
-        element.style.height = "auto";
+        // set the height back to auto in case of media queries etc, but only if fully expanded (this prevents double-clicking the button quickly from breaking the menu)
+        if (element.style.top === "0px") element.style.height = "auto";
     });
 };
 
@@ -62,9 +63,9 @@ const NavigationButton = ({ iconSize = 50 }) => {
 
         if (nav !== null) {
             if (menuOpen) {
-                expandElement(nav);
+                expandNavigation(nav);
             } else {
-                collapseElement(nav);
+                collapseNavigation(nav);
             }
 
             // always hide the nav off screen no matter how high it is, plus a little extra to account for text shadows etc...
