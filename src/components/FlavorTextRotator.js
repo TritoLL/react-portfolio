@@ -5,11 +5,11 @@ const delayBetweenLetters = 25;
 
 const flavorTexts = [
     "loves cute dogs.",
-    "makes games... sometimes.",
     "thinks React is neat.",
     "is not a designer. go easy!",
-    "plays games... too much.",
-    "have you seen the 404 page?",
+    "added cute dogs to the 404 page.",
+    "thinks hamburger menus are neat.",
+    "wants you to try Tic-Tac-Dog.",
 ];
 
 let flavorTextIndex = 0;
