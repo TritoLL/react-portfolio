@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { ImMenu3, ImMenu4 } from "react-icons/im";
+import styled from "styled-components";
 
 // collapse and expand code modified from: https://css-tricks.com/using-css-transitions-auto-dimensions/
+
+const NavButton = styled.button`
+    background-color: transparent;
+`;
 
 const collapseNavigation = (element) => {
     // get the height of the element's inner content, regardless of its actual size
@@ -75,13 +80,13 @@ const NavigationButton = ({ iconSize = 50 }) => {
     }, [menuOpen]);
 
     return (
-        <Icon
-            tabindex="0"
-            size={iconSize}
+        <NavButton
             onClick={() => {
                 setMenuOpen(!menuOpen);
             }}
-        />
+        >
+            <Icon size={iconSize} />
+        </NavButton>
     );
 };
 
