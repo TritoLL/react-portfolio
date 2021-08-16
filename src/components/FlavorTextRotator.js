@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // milliseconds
 const delayBetweenLetters = 25;
+const delayBetweenPhrases = 4250;
 
 const flavorTexts = [
     "loves cute dogs.",
@@ -53,7 +54,10 @@ const FlavorTextRotator = () => {
             }
         };
 
-        const rotateFlavorTextInterval = setInterval(rotateFlavorText, 4000);
+        const rotateFlavorTextInterval = setInterval(
+            rotateFlavorText,
+            delayBetweenPhrases
+        );
 
         return function cleanup() {
             clearInterval(rotateFlavorTextInterval);
