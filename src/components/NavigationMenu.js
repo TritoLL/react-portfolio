@@ -20,7 +20,7 @@ const NavList = styled.ul`
     align-items: center;
 
     @media (min-width: 768px) {
-        flex-direction: row;
+        flex-flow: row wrap;
     }
 `;
 
@@ -65,6 +65,86 @@ const NavigationMenu = () => {
                 <NavListItem>
                     <Link to="">
                         <FullLengthLink>Home</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="tic-tac-dog">
+                        <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
                     </Link>
                 </NavListItem>
                 <NavListItem>
