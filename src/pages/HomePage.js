@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AboutMe from "../components/AboutMe";
 import AboutThis from "../components/AboutThis";
 import Education from "../components/Education";
@@ -8,6 +8,10 @@ import Projects from "../components/Projects";
 import ScrollToTop from "../components/ScrollToTop";
 
 const HomePage = ({ theme, toggleTheme }) => {
+    useEffect(() => {
+        document.title = "Alex Friesen";
+    }, []);
+
     return (
         <>
             <Header theme={theme} toggleTheme={toggleTheme} />
