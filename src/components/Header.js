@@ -31,7 +31,6 @@ const Header = ({ theme, toggleTheme }) => {
                 <h1>
                     <Link to="/">Alex Friesen</Link>
                 </h1>
-
                 <h2>
                     <FlavorTextRotator />
                 </h2>

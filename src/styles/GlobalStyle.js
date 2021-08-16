@@ -54,6 +54,10 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${(props) => props.theme.main}AA;
     }
 
+    h1 {
+        font-size: 4em;
+    }
+    
     h1,
     h2 {
         text-align: center;
