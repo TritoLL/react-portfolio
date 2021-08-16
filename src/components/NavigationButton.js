@@ -24,9 +24,19 @@ const collapseElement = (element) => {
             element.style.height = 0 + "px";
         });
     });
+
+    // when the next css transition finishes (which should be the one we just triggered)
+    element.addEventListener("transitionend", function endTransition(e) {
+        // remove this event listener so it only gets triggered once
+        element.removeEventListener("transitionend", endTransition);
+
+        element.style.visibility = "hidden";
+    });
 };
 
 const expandElement = (element) => {
+    element.style.visibility = "visible";
+
     // get the height of the element's inner content, regardless of its actual size
     var sectionHeight = element.scrollHeight;
 
@@ -37,6 +47,9 @@ const expandElement = (element) => {
     element.addEventListener("transitionend", function endTransition(e) {
         // remove this event listener so it only gets triggered once
         element.removeEventListener("transitionend", endTransition);
+
+        // set the height back to auto in case of media queries etc
+        element.style.height = "auto";
     });
 };
 

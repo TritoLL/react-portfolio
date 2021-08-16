@@ -8,6 +8,7 @@ const Nav = styled.nav`
     transition: 0.5s !important;
     top: -25%;
     height: 0px;
+    visibility: hidden;
 `;
 
 const NavList = styled.ul`
