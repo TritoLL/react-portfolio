@@ -11,11 +11,9 @@ const ThemeToggler = ({ theme, toggleTheme, iconSize = 50 }) => {
     const Icon = usingDarkTheme ? FaSun : FaMoon;
 
     return (
-        <div className="theme-toggler">
-            <ThemeButton onClick={toggleTheme}>
-                <Icon size={iconSize} />
-            </ThemeButton>
-        </div>
+        <ThemeButton onClick={toggleTheme}>
+            <Icon size={iconSize} />
+        </ThemeButton>
     );
 };
 
