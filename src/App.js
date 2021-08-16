@@ -46,13 +46,13 @@ function App() {
                     <Route exact path="/">
                         <HomePage theme={theme} toggleTheme={toggleTheme} />
                     </Route>
-                    <Route path="/tic-tac-dog">
+                    <Route exact path="/tic-tac-dog">
                         <TicTacDogPage
                             theme={theme}
                             toggleTheme={toggleTheme}
                         />
                     </Route>
-                    <Route path="/404">
+                    <Route exact path="/404">
                         <NotFoundPage />
                     </Route>
                     <Redirect to="/404" />
