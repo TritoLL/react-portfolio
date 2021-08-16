@@ -75,6 +75,7 @@ const NavigationButton = ({ iconSize = 50 }) => {
 
     return (
         <Icon
+            tabindex="0"
             size={iconSize}
             onClick={() => {
                 setMenuOpen(!menuOpen);
