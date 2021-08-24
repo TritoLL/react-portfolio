@@ -47,7 +47,7 @@ const moveDogImages = () => {
 
 const NotFoundPage = () => {
     useEffect(() => {
-        document.title = "Alex Friesen | 404";
+        document.title = "Alex Friesen | 404 Not Found";
         const moveDogInterval = setInterval(moveDogImages, 175);
 
         return function cleanup() {
