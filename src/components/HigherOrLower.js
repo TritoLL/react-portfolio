@@ -10,9 +10,17 @@ const ErrorHeading = styled.h1`
 
 const HigherOrLower = () => {
     const [deckID, setDeckID] = useState("");
-    const [firstCard, setFirstCard] = useState({ value: "", suit: "" });
-    const [secondCard, setSecondCard] = useState({ value: "", suit: "" });
     const [error, setError] = useState("");
+    const [firstCard, setFirstCard] = useState({
+        image: "./images/blank.gif",
+        value: "",
+        suit: "",
+    });
+    const [secondCard, setSecondCard] = useState({
+        image: "./images/blank.gif",
+        value: "",
+        suit: "",
+    });
 
     useEffect(() => {
         if (!debugging) {
