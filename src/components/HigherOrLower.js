@@ -110,10 +110,8 @@ const HigherOrLower = () => {
                 <GameTitle>Higher or Lower</GameTitle>
             </GameHeader>
             <GameInstructions>
-                HOW TO PLAY: <br />
                 Guess if the next card will be higher or lower than the current
                 card.
-                <br /> Aces count as 1.
             </GameInstructions>
             <CardImage
                 src={firstCard.image}
