@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import TicTacDogPage from "./pages/TicTacDogPage";
+import HigherOrLowerPage from "./pages/HigherOrLowerPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
@@ -48,6 +49,12 @@ function App() {
                     </Route>
                     <Route exact path="/tic-tac-dog">
                         <TicTacDogPage
+                            theme={theme}
+                            toggleTheme={toggleTheme}
+                        />
+                    </Route>
+                    <Route exact path="/higher-or-lower">
+                        <HigherOrLowerPage
                             theme={theme}
                             toggleTheme={toggleTheme}
                         />
