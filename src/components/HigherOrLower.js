@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { GameHeader, GameTitle } from "../styles/CustomStyles";
+import {
+    GameHeader,
+    GameTitle,
+    GameInstructions,
+} from "../styles/CustomStyles";
 import styled from "styled-components";
 
 let debugging = true;
@@ -105,7 +109,12 @@ const HigherOrLower = () => {
             <GameHeader>
                 <GameTitle>Higher or Lower</GameTitle>
             </GameHeader>
-            <h1>Deck ID: {deckID}</h1>
+            <GameInstructions>
+                HOW TO PLAY: <br />
+                Guess if the next card will be higher or lower than the current
+                card.
+                <br /> Aces count as 1.
+            </GameInstructions>
             <CardImage
                 src={firstCard.image}
                 alt={`${firstCard.value} ${firstCard.suit}`}
