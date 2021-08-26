@@ -14,11 +14,24 @@ const ErrorHeading = styled.h1`
     color: red;
 `;
 
+const Card = styled.div`
+    display: inline;
+    padding: 2px;
+    margin: 0px 20px;
+    width: 100%;
+`;
+
+const CardTitle = styled.p`
+    font-size: 1.5em;
+    text-align: center;
+    color: ${(props) => props.theme.border};
+`;
+
 const CardImage = styled.img`
+    box-sizing: border-box;
     border: 5px solid ${(props) => props.theme.border};
     border-radius: 5%;
     padding: 2px;
-    margin: 0px 20px;
     width: 100%;
 `;
 
@@ -26,7 +39,7 @@ const GameContainer = styled.div`
     width: 90%;
     margin: 0 auto;
     display: block;
-    margin-top: 25px;
+    margin-top: 10px;
     justify-content: center;
     align-items: center;
     @media (min-width: 768px) {
@@ -167,19 +180,24 @@ const HigherOrLower = () => {
                 <GameTitle>Higher or Lower</GameTitle>
             </GameHeader>
             <GameInstructions>
-                Guess if the next card will be higher or lower than the current
-                card.
+                Guess if the next card will be higher or lower than your card.
             </GameInstructions>
             <GameContainer>
                 <GameCards>
-                    <CardImage
-                        src={firstCard.image}
-                        alt={`${firstCard.value} ${firstCard.suit}`}
-                    />
-                    <CardImage
-                        src={secondCard.image}
-                        alt={`${secondCard.value} ${secondCard.suit}`}
-                    />
+                    <Card>
+                        <CardTitle>Your Card</CardTitle>
+                        <CardImage
+                            src={firstCard.image}
+                            alt={`${firstCard.value} ${firstCard.suit}`}
+                        />
+                    </Card>
+                    <Card>
+                        <CardTitle>Next Card</CardTitle>
+                        <CardImage
+                            src={secondCard.image}
+                            alt={`${secondCard.value} ${secondCard.suit}`}
+                        />
+                    </Card>
                 </GameCards>
                 <GameControls>
                     <GameButton>Higher</GameButton>
