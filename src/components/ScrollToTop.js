@@ -32,8 +32,11 @@ const ScrollToTop = ({ iconSize = 50 }) => {
     window.addEventListener("scroll", toggleVisible);
 
     return (
-        <TopButton style={{ display: visible ? "block" : "none" }}>
-            <FaArrowCircleUp onClick={goToTop} size={iconSize} />
+        <TopButton
+            onClick={goToTop}
+            style={{ display: visible ? "block" : "none" }}
+        >
+            <FaArrowCircleUp size={iconSize} />
         </TopButton>
     );
 };
