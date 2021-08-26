@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import TicTacDogAI from "../classes/TicTacDogAI";
-import { GameHeader, GameTitle } from "../styles/CustomStyles";
+import {
+    GameHeader,
+    GameTitle,
+    GameInstructions,
+} from "../styles/CustomStyles";
 
 //[0][1][2]
 //[3][4][5]
@@ -277,6 +281,10 @@ const TicTacDog = () => {
                     <ScoreText>{mindyScore}</ScoreText>
                 </ScoreContainer>
             </GameHeader>
+            <GameInstructions>
+                You are Belle (left.) The AI is Mindy (right.) <br />
+                Win by placing three of your dog in a row!
+            </GameInstructions>
             {gameOverPanel}
             <GridContainer>
                 <GameSquare onClick={squareClicked}>
