@@ -55,6 +55,7 @@ const HigherOrLower = () => {
 
     const nextCard = async () => {
         let cardData;
+        let tries = 5;
 
         do {
             try {
@@ -65,9 +66,15 @@ const HigherOrLower = () => {
             } catch (error) {
                 console.log("Error:", error);
             }
-        } while (cardData === null || !cardData["success"]);
 
-        return cardData["cards"][0];
+            if (cardData === null) tries--;
+        } while (tries > 0 && (cardData === null || !cardData["success"]));
+
+        if (tries > 0) return cardData["cards"][0];
+        else {
+            setError("Could not draw a card, try refreshing the page.");
+            return { value: "", suit: "", image: "" };
+        }
     };
 
     let errorMessage;
