@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { GameHeader, GameTitle } from "../styles/CustomStyles";
 import styled from "styled-components";
 
 let debugging = true;
@@ -7,6 +8,8 @@ let debugDeckID = "0kpu32kr6ner";
 const ErrorHeading = styled.h1`
     color: red;
 `;
+
+const CardImage = styled.img``;
 
 const HigherOrLower = () => {
     const [deckID, setDeckID] = useState("");
@@ -91,12 +94,15 @@ const HigherOrLower = () => {
     return (
         <>
             {errorMessage}
+            <GameHeader>
+                <GameTitle>Higher or Lower</GameTitle>
+            </GameHeader>
             <h1>Deck ID: {deckID}</h1>
-            <img
+            <CardImage
                 src={firstCard.image}
                 alt={`${firstCard.value} ${firstCard.suit}`}
             />
-            <img
+            <CardImage
                 src={secondCard.image}
                 alt={`${secondCard.value} ${secondCard.suit}`}
             />

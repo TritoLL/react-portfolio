@@ -65,3 +65,23 @@ export const MobileIconsContainer = styled.div`
         }
     }
 `;
+
+export const GameTitle = styled.h1`
+    user-select: none;
+    font-size: 5vw;
+    padding-top: 15px;
+    text-align: center;
+    font-style: italic;
+
+    @media (min-width: 768px) {
+        font-size: 3vw;
+    }
+`;
+
+export const GameHeader = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-text: center;
+    user-select: none;
+`;

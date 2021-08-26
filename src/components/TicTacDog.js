@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import TicTacDogAI from "../classes/TicTacDogAI";
+import { GameHeader, GameTitle } from "../styles/CustomStyles";
 
 //[0][1][2]
 //[3][4][5]
@@ -20,26 +21,6 @@ const debugging = false;
 const gapSize = 20;
 const tileBorderSize = 5;
 const noImage = "./images/blank.gif";
-
-const GameTitle = styled.h1`
-    user-select: none;
-    font-size: 5vw;
-    padding-top: 15px;
-    text-align: center;
-    font-style: italic;
-
-    @media (min-width: 768px) {
-        font-size: 3vw;
-    }
-`;
-
-const GameHeader = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-text: center;
-    user-select: none;
-`;
 
 const ScoreText = styled.h3`
     user-select: none;
