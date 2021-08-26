@@ -85,3 +85,8 @@ export const GameHeader = styled.div`
     align-text: center;
     user-select: none;
 `;
+
+export const GameInstructions = styled.h3`
+    text-align: center;
+    margin: 0 auto;
+`;
