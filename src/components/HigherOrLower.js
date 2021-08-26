@@ -4,23 +4,31 @@ import styled from "styled-components";
 
 let debugging = true;
 let debugDeckID = "0kpu32kr6ner";
+let noCardImage = "./images/card_unknown.png";
 
 const ErrorHeading = styled.h1`
     color: red;
 `;
 
-const CardImage = styled.img``;
+const CardImage = styled.img`
+    border: 5px solid ${(props) => props.theme.border};
+    border-radius: 7%;
+    padding: 2px;
+    margin: 5px;
+    height: 314px;
+    width: 226px;
+`;
 
 const HigherOrLower = () => {
     const [deckID, setDeckID] = useState("");
     const [error, setError] = useState("");
     const [firstCard, setFirstCard] = useState({
-        image: "./images/blank.gif",
+        image: `${noCardImage}`,
         value: "",
         suit: "",
     });
     const [secondCard, setSecondCard] = useState({
-        image: "./images/blank.gif",
+        image: `${noCardImage}`,
         value: "",
         suit: "",
     });
