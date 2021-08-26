@@ -9,9 +9,9 @@ const flavorTexts = [
     "thinks React is neat.",
     "is not a designer. go easy!",
     "thinks hamburger menus are neat.",
-    "wants you to try Tic-Tac-Dog (open the menu!)",
+    "wants you to try Tic-Tac-Dog.",
     "added cute dogs to the 404 page.",
-    "adds mini-projects to the menu on occasion.",
+    "adds mini-projects to the menu.",
 ];
 
 let flavorTextIndex = 0;
