@@ -69,7 +69,7 @@ export const MobileIconsContainer = styled.div`
 export const GameTitle = styled.h1`
     user-select: none;
     font-size: 5vw;
-    padding-top: 15px;
+    padding-top: 5px;
     text-align: center;
     font-style: italic;
 
@@ -87,6 +87,14 @@ export const GameHeader = styled.div`
 `;
 
 export const GameInstructions = styled.h3`
+    user-select: none;
     text-align: center;
     margin: 0 auto;
+    width: 90%;
+    font-size: 3vw;
+    font-style: italic;
+
+    @media (min-width: 768px) {
+        font-size: 1.25em;
+    }
 `;
