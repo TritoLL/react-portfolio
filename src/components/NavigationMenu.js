@@ -72,6 +72,11 @@ const NavigationMenu = () => {
                         <FullLengthLink>Tic-Tac-Dog</FullLengthLink>
                     </Link>
                 </NavListItem>
+                <NavListItem>
+                    <Link to="higher-or-lower">
+                        <FullLengthLink>Higher or Lower</FullLengthLink>
+                    </Link>
+                </NavListItem>
             </NavList>
         </Nav>
     );
