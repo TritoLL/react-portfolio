@@ -19,6 +19,7 @@ const CardImage = styled.img`
     border-radius: 5%;
     padding: 2px;
     margin: 0px 20px;
+    width: 100%;
 `;
 
 const GameContainer = styled.div`
