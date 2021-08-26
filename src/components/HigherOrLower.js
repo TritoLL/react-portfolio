@@ -18,42 +18,51 @@ const CardImage = styled.img`
     border: 5px solid ${(props) => props.theme.border};
     border-radius: 5%;
     padding: 2px;
-    margin: 0px 25px;
+    margin: 0px 20px;
 `;
 
 const GameContainer = styled.div`
     width: 90%;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    display: block;
+    margin-top: 25px;
     justify-content: center;
     align-items: center;
-
     @media (min-width: 768px) {
-        flex-direction: row;
-        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
     }
+`;
+
+const GameCards = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const GameControls = styled.div`
     display: flex;
-    order: 3;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
 
     @media (min-width: 768px) {
-        order: 2;
-        flex-direction: column;
+        width: 30%;
     }
 `;
 
 const GameButton = styled.button`
     box-sizing: border-box;
     padding: 5px;
-    margin: 10px;
-    border-radius: 5%;
-    font-size: 2em;
+    margin: 10px 0;
+    width: 40%;
+    text-align: center;
+    border-radius: 0%;
+    font-size: 5vw;
     background-color: ${(props) => props.theme.main};
     color: ${(props) => props.theme.text};
-    border: 2px solid ${(props) => props.theme.border};
+    border: 4px solid ${(props) => props.theme.border};
 
     :hover,
     :focus {
@@ -65,23 +74,8 @@ const GameButton = styled.button`
     }
 
     @media (min-width: 768px) {
-        margin: 10px 0;
-    }
-`;
-
-const FirstCardImage = styled(CardImage)`
-    order: 1;
-
-    @media (min-width: 768px) {
-        order: 1;
-    }
-`;
-
-const SecondCardImage = styled(CardImage)`
-    order: 2;
-
-    @media (min-width: 768px) {
-        order: 3;
+        font-size: 2.5em;
+        width: 100%;
     }
 `;
 
@@ -176,18 +170,20 @@ const HigherOrLower = () => {
                 card.
             </GameInstructions>
             <GameContainer>
-                <FirstCardImage
-                    src={firstCard.image}
-                    alt={`${firstCard.value} ${firstCard.suit}`}
-                />
+                <GameCards>
+                    <CardImage
+                        src={firstCard.image}
+                        alt={`${firstCard.value} ${firstCard.suit}`}
+                    />
+                    <CardImage
+                        src={secondCard.image}
+                        alt={`${secondCard.value} ${secondCard.suit}`}
+                    />
+                </GameCards>
                 <GameControls>
                     <GameButton>Higher</GameButton>
                     <GameButton>Lower</GameButton>
                 </GameControls>
-                <SecondCardImage
-                    src={secondCard.image}
-                    alt={`${secondCard.value} ${secondCard.suit}`}
-                />
             </GameContainer>
         </>
     );
