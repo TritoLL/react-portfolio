@@ -42,6 +42,7 @@ const GameContainer = styled.div`
     margin-top: 10px;
     justify-content: center;
     align-items: center;
+
     @media (min-width: 768px) {
         display: flex;
         flex-direction: column;
@@ -94,6 +95,7 @@ const GameButton = styled.button`
 `;
 
 const HigherOrLower = () => {
+    const [gameActive, setGameActive] = useState(false);
     const [deckID, setDeckID] = useState("");
     const [error, setError] = useState("");
     const [firstCard, setFirstCard] = useState({
@@ -171,7 +173,23 @@ const HigherOrLower = () => {
     };
 
     let errorMessage;
-    if (error !== "") errorMessage = <ErrorHeading>{error}</ErrorHeading>;
+    errorMessage = error !== "" ? <ErrorHeading>{error}</ErrorHeading> : null;
+
+    let gameButtons;
+    gameButtons = gameActive ? (
+        <>
+            <GameButton>Higher</GameButton>
+            <GameButton>Lower</GameButton>
+        </>
+    ) : (
+        <GameButton
+            onClick={async () => {
+                setFirstCard(await nextCard().then(setGameActive(true)));
+            }}
+        >
+            Draw Card
+        </GameButton>
+    );
 
     return (
         <>
@@ -199,10 +217,7 @@ const HigherOrLower = () => {
                         />
                     </Card>
                 </GameCards>
-                <GameControls>
-                    <GameButton>Higher</GameButton>
-                    <GameButton>Lower</GameButton>
-                </GameControls>
+                <GameControls>{gameButtons}</GameControls>
             </GameContainer>
         </>
     );
