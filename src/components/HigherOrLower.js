@@ -12,7 +12,7 @@ const ErrorHeading = styled.h1`
     color: red;
 `;
 
-const ScoreText = styled(GameInstructions)`
+const InfoText = styled(GameInstructions)`
     text-align: center;
     font-size: 1.5em;
 `;
@@ -328,7 +328,7 @@ class HigherOrLower extends React.Component {
                         <GameButton onClick={this.resetGame}>
                             Play Again?
                         </GameButton>
-                        <h1>{this.state.result}</h1>
+                        <InfoText>{this.state.result}</InfoText>
                     </>
                 );
                 break;
@@ -357,10 +357,10 @@ class HigherOrLower extends React.Component {
                         deckofcardsapi.com
                     </a>
                 </GameInstructions>
-                <ScoreText>
+                <InfoText>
                     Score: {this.state.score} &nbsp; Best Score:{" "}
                     {this.state.bestScore}
-                </ScoreText>
+                </InfoText>
                 <GameContainer>
                     <GameCards>
                         <Card>
