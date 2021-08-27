@@ -240,6 +240,9 @@ class HigherOrLower extends React.Component {
                 <GameInstructions>
                     Guess if the next card will be higher or lower than your
                     card. The deck is shuffled after every round!
+                    <br />
+                    Built using &#0020;
+                    <a href="http://deckofcardsapi.com/">deckofcardsapi.com</a>
                 </GameInstructions>
                 <ScoreText>
                     Score: {this.state.score} &nbsp; Best Score:{" "}
