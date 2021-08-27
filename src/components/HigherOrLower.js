@@ -112,30 +112,42 @@ class HigherOrLower extends React.Component {
         };
     }
 
-    // when the component loads, try shuffling the deck. if it fails, fetch a new one.
+    // when the component loads, load highscores and fetch a deck
     async componentDidMount() {
-        this.setState({ deckID: localStorage.getItem("deckID") }, async () => {
-            let deckData;
-            let tries = 5;
+        this.setState(
+            {
+                bestScore: localStorage.getItem("higherOrLower_BestScore") || 0,
+                deckID: localStorage.getItem("higherOrLower_DeckID"),
+            },
+            async () => {
+                let deckData;
+                let tries = 5;
 
-            do {
-                deckData = await this.shuffleDeck();
-                if (deckData === null || !deckData["success"]) {
-                    deckData = await this.fetchDeck();
-                    tries--;
-                }
-            } while (tries > 0 && (deckData === null || !deckData["success"]));
-
-            if (tries <= 0) {
-                this.setState({
-                    error: "Could not fetch a deck, try refreshing the page.",
-                });
-            } else {
-                this.setState({ deckID: deckData["deck_id"] }, () =>
-                    localStorage.setItem("deckID", this.state.deckID)
+                do {
+                    deckData = await this.shuffleDeck();
+                    if (deckData === null || !deckData["success"]) {
+                        deckData = await this.fetchDeck();
+                        tries--;
+                    }
+                } while (
+                    tries > 0 &&
+                    (deckData === null || !deckData["success"])
                 );
+
+                if (tries <= 0) {
+                    this.setState({
+                        error: "Could not fetch a deck, try refreshing the page.",
+                    });
+                } else {
+                    this.setState({ deckID: deckData["deck_id"] }, () =>
+                        localStorage.setItem(
+                            "higherOrLower_DeckID",
+                            this.state.deckID
+                        )
+                    );
+                }
             }
-        });
+        );
     }
 
     fetchDeck = async () => {
