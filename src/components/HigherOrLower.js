@@ -298,7 +298,7 @@ class HigherOrLower extends React.Component {
     render() {
         let errorMessage =
             this.state.error !== "" ? (
-                <ErrorHeading>{this.error}</ErrorHeading>
+                <ErrorHeading>{this.state.error}</ErrorHeading>
             ) : null;
 
         let gameButtons;
