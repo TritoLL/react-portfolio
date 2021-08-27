@@ -14,7 +14,12 @@ const ErrorHeading = styled.h1`
 
 const InfoText = styled(GameInstructions)`
     text-align: center;
-    font-size: 1.5em;
+    font-size: 5vw;
+    margin: 10px auto;
+
+    @media (min-width: 768px) {
+        font-size: 1.5em;
+    }
 `;
 
 const Card = styled.div`
@@ -30,14 +35,18 @@ const Card = styled.div`
 `;
 
 const CardTitle = styled.p`
-    font-size: 1.5em;
+    font-size: 1em;
     text-align: center;
     color: ${(props) => props.theme.border};
+
+    @media (min-width: 768px) {
+        font-size: 1.3em;
+    }
 `;
 
 const CardImage = styled.img`
     box-sizing: border-box;
-    border: 5px solid ${(props) => props.theme.border};
+    border: 3px solid ${(props) => props.theme.border};
     border-radius: 5%;
     padding: 2px;
     width: 100%;
@@ -47,7 +56,6 @@ const GameContainer = styled.div`
     width: 90%;
     margin: 0 auto;
     display: block;
-    margin-top: 10px;
     justify-content: center;
     align-items: center;
 
@@ -73,7 +81,7 @@ const GameControls = styled.div`
 
 const GameButton = styled.button`
     box-sizing: border-box;
-    padding: 5px;
+    padding: 3px;
     margin: 5px 0;
     width: 100%;
     text-align: center;
@@ -81,7 +89,7 @@ const GameButton = styled.button`
     font-size: 5vw;
     background-color: ${(props) => props.theme.main};
     color: ${(props) => props.theme.text};
-    border: 4px solid ${(props) => props.theme.border};
+    border: 3px solid ${(props) => props.theme.border};
 
     :hover,
     :focus {
