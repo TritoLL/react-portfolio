@@ -343,7 +343,7 @@ class HigherOrLower extends React.Component {
                     <GameTitle>Higher or Lower</GameTitle>
                 </GameHeader>
                 <GameInstructions>
-                    Guess if the next card will be higher or lower than your
+                    Guess if the NEXT card will be higher or lower than your
                     card. The deck is shuffled after every round!
                     <br />
                     Built using &#0020;
