@@ -14,6 +14,11 @@ const ErrorHeading = styled.h1`
     color: red;
 `;
 
+const ScoreText = styled(GameInstructions)`
+    text-align: center;
+    font-size: 1.5em;
+`;
+
 const Card = styled.div`
     padding: 2px;
     width: 100%;
@@ -200,6 +205,7 @@ const HigherOrLower = () => {
             <GameInstructions>
                 Guess if the next card will be higher or lower than your card.
             </GameInstructions>
+            <ScoreText>Score: 0 &nbsp; Best Score: 0</ScoreText>
             <GameContainer>
                 <GameCards>
                     <Card>
