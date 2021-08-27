@@ -231,7 +231,7 @@ class HigherOrLower extends React.Component {
                 return 13;
 
             default:
-                return cardValue;
+                return parseInt(cardValue);
         }
     };
 
@@ -261,6 +261,8 @@ class HigherOrLower extends React.Component {
                 } else {
                     this.setState({ score: 0, result: "Wrong!" });
                 }
+
+                console.log(guessedHigher, playerValue, drawnValue);
             });
         });
     };
