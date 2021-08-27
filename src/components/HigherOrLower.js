@@ -216,8 +216,8 @@ class HigherOrLower extends React.Component {
 
         let gameButtons = this.state.gameActive ? (
             <>
-                <GameButton>Higher</GameButton>
-                <GameButton>Lower</GameButton>
+                <GameButton>Guess Higher</GameButton>
+                <GameButton>Guess Lower</GameButton>
             </>
         ) : (
             <GameButton
@@ -239,7 +239,7 @@ class HigherOrLower extends React.Component {
                 </GameHeader>
                 <GameInstructions>
                     Guess if the next card will be higher or lower than your
-                    card.
+                    card. The deck is shuffled after every round!
                 </GameInstructions>
                 <ScoreText>
                     Score: {this.state.score} &nbsp; Best Score:{" "}
