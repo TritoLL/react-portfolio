@@ -8,12 +8,22 @@ const CustomFooter = styled(HeaderFooter)`
     padding: 15px 0px;
 `;
 
+const CopyrightText = styled.p`
+    width: 90%;
+    font-size: 1em;
+    text-align: center;
+    margin: 0 auto;
+`;
+
 const Footer = () => {
     return (
         <CustomFooter as="footer">
             <MobileIconsContainer>
                 <IconLinks />
             </MobileIconsContainer>
+            <CopyrightText>
+                Copyright &copy; 2021 Alexander Friesen
+            </CopyrightText>
         </CustomFooter>
     );
 };
