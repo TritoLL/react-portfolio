@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     GameHeader,
     GameTitle,
@@ -6,8 +6,6 @@ import {
 } from "../styles/CustomStyles";
 import styled from "styled-components";
 
-let debugging = true;
-let debugDeckID = "0kpu32kr6ner";
 let noCardImage = "./images/card_unknown.png";
 
 const ErrorHeading = styled.h1`
@@ -99,134 +97,159 @@ const GameButton = styled.button`
     }
 `;
 
-const HigherOrLower = () => {
-    const [gameActive, setGameActive] = useState(false);
-    const [deckID, setDeckID] = useState("");
-    const [error, setError] = useState("");
-    const [firstCard, setFirstCard] = useState({
-        image: `${noCardImage}`,
-        value: "",
-        suit: "",
-    });
-    const [secondCard, setSecondCard] = useState({
-        image: `${noCardImage}`,
-        value: "",
-        suit: "",
-    });
+class HigherOrLower extends React.Component {
+    constructor(props) {
+        super(props);
 
-    useEffect(() => {
-        if (!debugging) {
-            try {
-                fetch(
-                    "http://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
-                )
-                    .then((response) => response.json())
-                    .then((data) => setDeckID(data["deck_id"]));
-            } catch (error) {
-                console.log("Error:", error);
-                setError("Could not fetch a deck, try refreshing the page.");
+        this.state = {
+            gameActive: false,
+            deckID: "",
+            error: "",
+            firstCard: { value: "", suit: "", image: `${noCardImage}` },
+            secondCard: { value: "", suit: "", image: `${noCardImage}` },
+        };
+    }
+
+    // when the component loads, try shuffling the deck. if it fails, fetch a new one.
+    async componentDidMount() {
+        this.setState({ deckID: localStorage.getItem("deckID") }, async () => {
+            let deckData;
+            let tries = 5;
+
+            do {
+                deckData = await this.shuffleDeck();
+                if (deckData === null || !deckData["success"]) {
+                    deckData = await this.fetchDeck();
+                    tries--;
+                }
+            } while (tries > 0 && (deckData === null || !deckData["success"]));
+
+            if (tries <= 0) {
+                this.setState({
+                    error: "Could not fetch a deck, try refreshing the page.",
+                });
+            } else {
+                this.setState({ deckID: deckData["deck_id"] }, () =>
+                    localStorage.setItem("deckID", this.state.deckID)
+                );
             }
-        } else {
-            setDeckID(debugDeckID);
-        }
-    }, []);
+        });
+    }
 
-    const shuffleDeck = async () => {
-        try {
-            await fetch(
-                `http://deckofcardsapi.com/api/deck/${deckID}/shuffle/`
-            );
-        } catch (error) {
-            console.log("Error:", error);
-            setError("Could not shuffle the deck, try refreshing the page.");
-        }
-    };
-
-    const drawCards = async (n) => {
+    fetchDeck = async () => {
         try {
             return await fetch(
-                `http://deckofcardsapi.com/api/deck/${deckID}/draw/?count=${n}`
+                "http://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
             ).then((response) => response.json());
         } catch (error) {
-            console.log("Error:", error);
             return null;
         }
     };
 
-    const nextCard = async () => {
+    shuffleDeck = async () => {
+        try {
+            return await fetch(
+                `http://deckofcardsapi.com/api/deck/${this.state.deckID}/shuffle/`
+            ).then((response) => response.json());
+        } catch (error) {
+            this.setState({
+                error: "Could not shuffle the deck, try refreshing the page.",
+            });
+            return null;
+        }
+    };
+
+    drawCards = async (n) => {
+        try {
+            return await fetch(
+                `http://deckofcardsapi.com/api/deck/${this.state.deckID}/draw/?count=${n}`
+            ).then((response) => response.json());
+        } catch (error) {
+            return null;
+        }
+    };
+
+    nextCard = async () => {
         let cardData;
         let tries = 5;
 
         do {
-            try {
-                cardData = await drawCards(1);
-                if (cardData !== null && !cardData["success"]) {
-                    await shuffleDeck();
-                }
-            } catch (error) {
-                console.log("Error:", error);
+            cardData = await this.drawCards(1);
+
+            if (cardData !== null && !cardData["success"]) {
+                await this.shuffleDeck();
             }
 
-            if (cardData === null) tries--;
+            if (cardData === null) {
+                tries--;
+            }
         } while (tries > 0 && (cardData === null || !cardData["success"]));
 
         if (tries > 0) return cardData["cards"][0];
         else {
-            setError("Could not draw a card, try refreshing the page.");
+            this.setState({
+                error: "Could not draw a card, try refreshing the page.",
+            });
             return { value: "", suit: "", image: "" };
         }
     };
 
-    let errorMessage;
-    errorMessage = error !== "" ? <ErrorHeading>{error}</ErrorHeading> : null;
+    render() {
+        let errorMessage =
+            this.state.error !== "" ? (
+                <ErrorHeading>{this.error}</ErrorHeading>
+            ) : null;
 
-    let gameButtons;
-    gameButtons = gameActive ? (
-        <>
-            <GameButton>Higher</GameButton>
-            <GameButton>Lower</GameButton>
-        </>
-    ) : (
-        <GameButton
-            onClick={async () => {
-                setFirstCard(await nextCard().then(setGameActive(true)));
-            }}
-        >
-            Draw Card
-        </GameButton>
-    );
+        let gameButtons = this.state.gameActive ? (
+            <>
+                <GameButton>Higher</GameButton>
+                <GameButton>Lower</GameButton>
+            </>
+        ) : (
+            <GameButton
+                onClick={async () => {
+                    this.setState({ firstCard: await this.nextCard() }, () =>
+                        this.setState({ gameActive: true })
+                    );
+                }}
+            >
+                Draw Card
+            </GameButton>
+        );
 
-    return (
-        <>
-            {errorMessage}
-            <GameHeader>
-                <GameTitle>Higher or Lower</GameTitle>
-            </GameHeader>
-            <GameInstructions>
-                Guess if the next card will be higher or lower than your card.
-            </GameInstructions>
-            <ScoreText>Score: 0 &nbsp; Best Score: 0</ScoreText>
-            <GameContainer>
-                <GameCards>
-                    <Card>
-                        <CardTitle>Your Card</CardTitle>
-                        <CardImage
-                            src={firstCard.image}
-                            alt={`${firstCard.value} ${firstCard.suit}`}
-                        />
-                    </Card>
-                    <Card>
-                        <CardTitle>Next Card</CardTitle>
-                        <CardImage
-                            src={secondCard.image}
-                            alt={`${secondCard.value} ${secondCard.suit}`}
-                        />
-                    </Card>
-                </GameCards>
-                <GameControls>{gameButtons}</GameControls>
-            </GameContainer>
-        </>
-    );
-};
+        return (
+            <>
+                {errorMessage}
+                <GameHeader>
+                    <GameTitle>Higher or Lower</GameTitle>
+                </GameHeader>
+                <GameInstructions>
+                    Guess if the next card will be higher or lower than your
+                    card.
+                </GameInstructions>
+                <ScoreText>Score: 0 &nbsp; Best Score: 0</ScoreText>
+                <GameContainer>
+                    <GameCards>
+                        <Card>
+                            <CardTitle>Your Card</CardTitle>
+                            <CardImage
+                                src={this.state.firstCard.image}
+                                alt={`${this.state.firstCard.value} ${this.state.firstCard.suit}`}
+                            />
+                        </Card>
+                        <Card>
+                            <CardTitle>Next Card</CardTitle>
+                            <CardImage
+                                src={this.state.secondCard.image}
+                                alt={`${this.state.secondCard.value} ${this.state.secondCard.suit}`}
+                            />
+                        </Card>
+                    </GameCards>
+                    <GameControls>{gameButtons}</GameControls>
+                </GameContainer>
+            </>
+        );
+    }
+}
 
 export default HigherOrLower;
