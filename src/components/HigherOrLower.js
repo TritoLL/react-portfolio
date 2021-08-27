@@ -15,10 +15,15 @@ const ErrorHeading = styled.h1`
 `;
 
 const Card = styled.div`
-    display: inline;
     padding: 2px;
-    margin: 0px 20px;
     width: 100%;
+
+    :nth-of-type(1) {
+        margin-right: 10px;
+    }
+    :nth-of-type(2) {
+        margin-left: 10px;
+    }
 `;
 
 const CardTitle = styled.p`
@@ -44,8 +49,7 @@ const GameContainer = styled.div`
     align-items: center;
 
     @media (min-width: 768px) {
-        display: flex;
-        flex-direction: column;
+        max-width: 40em;
     }
 `;
 
@@ -60,18 +64,15 @@ const GameControls = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
-
-    @media (min-width: 768px) {
-        width: 30%;
-    }
+    margin: 10px 0;
+    width: 100%;
 `;
 
 const GameButton = styled.button`
     box-sizing: border-box;
     padding: 5px;
-    margin: 10px 0;
-    width: 40%;
+    margin: 5px 0;
+    width: 100%;
     text-align: center;
     border-radius: 0%;
     font-size: 5vw;
@@ -90,7 +91,6 @@ const GameButton = styled.button`
 
     @media (min-width: 768px) {
         font-size: 2.5em;
-        width: 100%;
     }
 `;
 
