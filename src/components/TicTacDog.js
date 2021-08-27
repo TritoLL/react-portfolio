@@ -66,7 +66,7 @@ const GameOverContainer = styled.div`
     user-select: none;
     position: absolute;
     z-index: 1;
-    margin: 25px auto;
+    margin: 0 auto;
     padding: 50px 0px;
     width: 100%;
     justify-content: center;
@@ -117,10 +117,17 @@ const GameSquare = styled.div`
     }
 `;
 
-const PlayAgainButton = styled.a`
-    user-select: none;
-    text-decoration: underline;
-    cursor: pointer;
+const PlayAgainButton = styled.button`
+    width: 30%;
+    padding: 10px;
+    font-size: 2.5vw;
+    border: 5px solid ${(props) => props.theme.border};
+    background-color: ${(props) => props.theme.main};
+
+    :hover,
+    :focus {
+        background-color: ${(props) => props.theme.body};
+    }
 `;
 
 const allGameSquareImages = () => {
