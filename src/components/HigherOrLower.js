@@ -154,7 +154,7 @@ class HigherOrLower extends React.Component {
     fetchDeck = async () => {
         try {
             return await fetch(
-                "http://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
+                "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1"
             ).then((response) => response.json());
         } catch (error) {
             return null;
@@ -164,7 +164,7 @@ class HigherOrLower extends React.Component {
     shuffleDeck = async () => {
         try {
             return await fetch(
-                `http://deckofcardsapi.com/api/deck/${this.state.deckID}/shuffle/`
+                `https://deckofcardsapi.com/api/deck/${this.state.deckID}/shuffle/`
             ).then((response) => response.json());
         } catch (error) {
             this.setState({
@@ -177,7 +177,7 @@ class HigherOrLower extends React.Component {
     fetchCards = async (n) => {
         try {
             return await fetch(
-                `http://deckofcardsapi.com/api/deck/${this.state.deckID}/draw/?count=${n}`
+                `https://deckofcardsapi.com/api/deck/${this.state.deckID}/draw/?count=${n}`
             ).then((response) => response.json());
         } catch (error) {
             return null;
@@ -349,7 +349,7 @@ class HigherOrLower extends React.Component {
                     card. The deck is shuffled after every round!
                     <br />
                     Built using &#0020;
-                    <a href="http://deckofcardsapi.com/">deckofcardsapi.com</a>
+                    <a href="https://deckofcardsapi.com/">deckofcardsapi.com</a>
                 </GameInstructions>
                 <ScoreText>
                     Score: {this.state.score} &nbsp; Best Score:{" "}
