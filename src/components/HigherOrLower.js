@@ -103,6 +103,8 @@ class HigherOrLower extends React.Component {
 
         this.state = {
             gameActive: false,
+            score: 0,
+            bestScore: 0,
             deckID: "",
             error: "",
             firstCard: { value: "", suit: "", image: `${noCardImage}` },
@@ -227,7 +229,10 @@ class HigherOrLower extends React.Component {
                     Guess if the next card will be higher or lower than your
                     card.
                 </GameInstructions>
-                <ScoreText>Score: 0 &nbsp; Best Score: 0</ScoreText>
+                <ScoreText>
+                    Score: {this.state.score} &nbsp; Best Score:{" "}
+                    {this.state.bestScore}
+                </ScoreText>
                 <GameContainer>
                     <GameCards>
                         <Card>
