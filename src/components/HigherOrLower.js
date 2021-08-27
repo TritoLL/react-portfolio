@@ -349,7 +349,13 @@ class HigherOrLower extends React.Component {
                     card. The deck is shuffled after every round!
                     <br />
                     Built using &#0020;
-                    <a href="https://deckofcardsapi.com/">deckofcardsapi.com</a>
+                    <a
+                        href="https://deckofcardsapi.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        deckofcardsapi.com
+                    </a>
                 </GameInstructions>
                 <ScoreText>
                     Score: {this.state.score} &nbsp; Best Score:{" "}
