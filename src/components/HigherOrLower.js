@@ -248,8 +248,8 @@ class HigherOrLower extends React.Component {
                 if (drawnValue === playerValue) {
                     this.setState({ result: "It's a tie!" });
                 } else if (
-                    (guessedHigher && drawnValue >= playerValue) ||
-                    (!guessedHigher && drawnValue <= playerValue)
+                    (guessedHigher && drawnValue > playerValue) ||
+                    (!guessedHigher && drawnValue < playerValue)
                 ) {
                     this.setState(
                         (state) => ({
