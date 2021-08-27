@@ -269,8 +269,6 @@ class HigherOrLower extends React.Component {
                 } else {
                     this.setState({ score: 0, result: "Wrong!" });
                 }
-
-                console.log(guessedHigher, playerValue, drawnValue);
             });
         });
     };
