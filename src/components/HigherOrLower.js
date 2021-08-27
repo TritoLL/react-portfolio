@@ -208,6 +208,53 @@ class HigherOrLower extends React.Component {
         }
     };
 
+    // turns the letter values into actual numbers
+    cardValueToNumber = (cardValue) => {
+        switch (cardValue) {
+            case "ACE":
+                return 1;
+
+            case "JACK":
+                return 11;
+
+            case "QUEEN":
+                return 12;
+
+            case "KING":
+                return 13;
+
+            default:
+                return cardValue;
+        }
+    };
+
+    guess = async (guessedHigher) => {
+        this.setState({ gameActive: false }, async () => {
+            this.setState({ secondCard: await this.nextCard() }, () => {
+                let playerValue = this.cardValueToNumber(
+                    this.state.firstCard.value
+                );
+                let drawnValue = this.cardValueToNumber(
+                    this.state.secondCard.value
+                );
+
+                if (drawnValue === playerValue) {
+                    console.log(
+                        "Both cards had the same value.",
+                        playerValue,
+                        drawnValue
+                    );
+                } else if (guessedHigher && drawnValue >= playerValue) {
+                    console.log("Player wins!", playerValue, drawnValue);
+                } else if (!guessedHigher && drawnValue <= playerValue) {
+                    console.log("Player wins!", playerValue, drawnValue);
+                } else {
+                    console.log("Player loses.", playerValue, drawnValue);
+                }
+            });
+        });
+    };
+
     render() {
         let errorMessage =
             this.state.error !== "" ? (
@@ -216,8 +263,12 @@ class HigherOrLower extends React.Component {
 
         let gameButtons = this.state.gameActive ? (
             <>
-                <GameButton>Guess Higher</GameButton>
-                <GameButton>Guess Lower</GameButton>
+                <GameButton onClick={() => this.guess(true)}>
+                    Guess Higher
+                </GameButton>
+                <GameButton onClick={() => this.guess(false)}>
+                    Guess Lower
+                </GameButton>
             </>
         ) : (
             <GameButton
