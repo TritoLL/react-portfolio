@@ -84,7 +84,7 @@ const ScoreContainer = styled.div`
     position: relative;
 `;
 
-const GameSquare = styled.div`
+const GameSquare = styled.button`
     user-select: none;
     position: relative;
     box-sizing: border-box;
@@ -109,7 +109,8 @@ const GameSquare = styled.div`
         pointer-events: none;
     }
 
-    :hover {
+    :hover,
+    :focus {
         background-color: ${(props) => props.theme.border}66;
     }
 
