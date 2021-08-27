@@ -102,7 +102,8 @@ class HigherOrLower extends React.Component {
         super(props);
 
         this.state = {
-            gameActive: false,
+            gameState: "draw",
+            gameResult: "",
             score: 0,
             bestScore: 0,
             deckID: "",
@@ -173,7 +174,7 @@ class HigherOrLower extends React.Component {
         }
     };
 
-    drawCards = async (n) => {
+    fetchCards = async (n) => {
         try {
             return await fetch(
                 `http://deckofcardsapi.com/api/deck/${this.state.deckID}/draw/?count=${n}`
@@ -188,7 +189,7 @@ class HigherOrLower extends React.Component {
         let tries = 5;
 
         do {
-            cardData = await this.drawCards(1);
+            cardData = await this.fetchCards(1);
 
             if (cardData !== null && !cardData["success"]) {
                 await this.shuffleDeck();
@@ -206,6 +207,12 @@ class HigherOrLower extends React.Component {
             });
             return { value: "", suit: "", image: "" };
         }
+    };
+
+    drawCard = async () => {
+        this.setState({ firstCard: await this.nextCard() }, () =>
+            this.setState({ gameState: "guess" })
+        );
     };
 
     // turns the letter values into actual numbers
@@ -229,7 +236,7 @@ class HigherOrLower extends React.Component {
     };
 
     guess = async (guessedHigher) => {
-        this.setState({ gameActive: false }, async () => {
+        this.setState({ gameState: "result" }, async () => {
             this.setState({ secondCard: await this.nextCard() }, () => {
                 let playerValue = this.cardValueToNumber(
                     this.state.firstCard.value
@@ -239,18 +246,49 @@ class HigherOrLower extends React.Component {
                 );
 
                 if (drawnValue === playerValue) {
-                    console.log(
-                        "Both cards had the same value.",
-                        playerValue,
-                        drawnValue
+                    this.setState({ result: "It's a tie!" });
+                } else if (
+                    (guessedHigher && drawnValue >= playerValue) ||
+                    (!guessedHigher && drawnValue <= playerValue)
+                ) {
+                    this.setState(
+                        (state) => ({
+                            score: state.score + 1,
+                            result: "Correct!",
+                        }),
+                        this.checkForNewBestScore
                     );
-                } else if (guessedHigher && drawnValue >= playerValue) {
-                    console.log("Player wins!", playerValue, drawnValue);
-                } else if (!guessedHigher && drawnValue <= playerValue) {
-                    console.log("Player wins!", playerValue, drawnValue);
                 } else {
-                    console.log("Player loses.", playerValue, drawnValue);
+                    this.setState({ score: 0, result: "Wrong!" });
                 }
+            });
+        });
+    };
+
+    checkForNewBestScore = () => {
+        if (
+            (localStorage.getItem("higherOrLower_BestScore") || 0) <
+            this.state.score
+        ) {
+            this.setState(
+                (state) => ({ bestScore: state.score }),
+                () => {
+                    localStorage.setItem(
+                        "higherOrLower_BestScore",
+                        this.state.bestScore
+                    );
+                }
+            );
+        }
+    };
+
+    resetGame = async () => {
+        await this.shuffleDeck().then(() => {
+            this.setState({
+                firstCard: { value: "", suit: "", image: `${noCardImage}` },
+                secondCard: { value: "", suit: "", image: `${noCardImage}` },
+                gameState: "draw",
+                result: "",
             });
         });
     };
@@ -261,26 +299,42 @@ class HigherOrLower extends React.Component {
                 <ErrorHeading>{this.error}</ErrorHeading>
             ) : null;
 
-        let gameButtons = this.state.gameActive ? (
-            <>
-                <GameButton onClick={() => this.guess(true)}>
-                    Guess Higher
-                </GameButton>
-                <GameButton onClick={() => this.guess(false)}>
-                    Guess Lower
-                </GameButton>
-            </>
-        ) : (
-            <GameButton
-                onClick={async () => {
-                    this.setState({ firstCard: await this.nextCard() }, () =>
-                        this.setState({ gameActive: true })
-                    );
-                }}
-            >
-                Draw Card
-            </GameButton>
-        );
+        let gameButtons;
+        switch (this.state.gameState) {
+            case "draw":
+                gameButtons = (
+                    <GameButton onClick={this.drawCard}>Draw Card</GameButton>
+                );
+                break;
+
+            case "guess":
+                gameButtons = (
+                    <>
+                        <GameButton onClick={() => this.guess(true)}>
+                            Guess Higher
+                        </GameButton>
+                        <GameButton onClick={() => this.guess(false)}>
+                            Guess Lower
+                        </GameButton>
+                    </>
+                );
+                break;
+
+            case "result":
+                gameButtons = (
+                    <>
+                        <GameButton onClick={this.resetGame}>
+                            Play Again?
+                        </GameButton>
+                        <h1>{this.state.result}</h1>
+                    </>
+                );
+                break;
+
+            default:
+                gameButtons = null;
+                break;
+        }
 
         return (
             <>
