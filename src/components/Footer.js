@@ -22,7 +22,7 @@ const Footer = () => {
                 <IconLinks />
             </MobileIconsContainer>
             <CopyrightText>
-                Copyright &copy; 2021 Alexander Friesen
+                Copyright &copy; {new Date().getFullYear()} Alexander Friesen
             </CopyrightText>
         </CustomFooter>
     );
