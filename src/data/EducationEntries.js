@@ -1,6 +1,6 @@
 export const educationEntries = [
     {
-        institutionName: "Red River College",
+        institutionName: "RRC Polytech (formerly Red River College)",
         courseName: "Business Information Technology",
         startDate: "Sep 2020",
         endDate: "Present",
@@ -23,7 +23,7 @@ export const educationEntries = [
         ],
     },
     {
-        institutionName: "Red River College",
+        institutionName: "RRC Polytech (formerly Red River College)",
         courseName: "Introduction to Business Information Technology (Honours)",
         startDate: "Jan 2020",
         endDate: "May 2020",
