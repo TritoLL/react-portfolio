@@ -25,6 +25,12 @@ const Description = styled.span`
     left: 5%;
 `;
 
+const UnorderedBulletPoints = styled.ul`
+    li li {
+        margin-left: 1em;
+    }
+`;
+
 const EducationEntry = ({ entry }) => (
     <CustomDiv>
         <Title>
@@ -38,20 +44,22 @@ const EducationEntry = ({ entry }) => (
         </Title>
         <br />{" "}
         <Description>
-            <ul>
+            <UnorderedBulletPoints>
                 {entry.bulletPoints.map((bulletPoint, indexTitle) => (
                     <>
-                        <li key={indexTitle}>{bulletPoint.title}</li>
-                        <ul>
-                            {bulletPoint.content.map(
-                                (content, indexContent) => (
-                                    <li key={indexContent}>{content}</li>
-                                )
-                            )}
-                        </ul>
+                        <li key={indexTitle}>
+                            {bulletPoint.title}
+                            <ul>
+                                {bulletPoint.content.map(
+                                    (content, indexContent) => (
+                                        <li key={indexContent}>{content}</li>
+                                    )
+                                )}
+                            </ul>
+                        </li>
                     </>
                 ))}
-            </ul>
+            </UnorderedBulletPoints>
         </Description>
     </CustomDiv>
 );
