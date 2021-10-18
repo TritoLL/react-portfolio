@@ -39,8 +39,17 @@ const EducationEntry = ({ entry }) => (
         <br />{" "}
         <Description>
             <ul>
-                {entry.bulletPoints.map((bulletPoint, index) => (
-                    <li key={index}>{bulletPoint}</li>
+                {entry.bulletPoints.map((bulletPoint, indexTitle) => (
+                    <>
+                        <li key={indexTitle}>{bulletPoint.title}</li>
+                        <ul>
+                            {bulletPoint.content.map(
+                                (content, indexContent) => (
+                                    <li key={indexContent}>{content}</li>
+                                )
+                            )}
+                        </ul>
+                    </>
                 ))}
             </ul>
         </Description>
