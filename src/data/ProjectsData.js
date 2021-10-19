@@ -15,4 +15,12 @@ export const projectsData = [
         img: "../images/dehydratedbeansand.png",
         alt: "DehydratedBeanSand.com",
     },
+    {
+        title: "PyDF-Merge",
+        description:
+            "I didn't want to pay for <insert popular PDF software here>'s PDF Merge feature, so I wrote a small CLI tool using PyPDF2's PdfFileMerger object. You can add it to your PATH and use it from anywhere on your computer.",
+        link: "https://github.com/TritoLL/PyDF-Merge",
+        img: "../images/pydfmerge.png",
+        alt: "PyDF-Merge Code Snippet",
+    },
 ];
