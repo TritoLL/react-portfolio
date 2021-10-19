@@ -39,35 +39,53 @@ const Slide = styled.div`
         }
     }
 
-    border: 10px solid ${(props) => props.theme.border};
+    display: flex;
     flex-direction: column;
+    border: 10px solid ${(props) => props.theme.border};
 
     @media (min-width: 768px) {
-        display: flex;
         flex-direction: row;
     }
 `;
 
-const SlideDescription = styled.p`
-    padding: 10px;
-    word-wrap: break-word;
-    overflow: auto;
+const SlideDescriptionContainer = styled.p`
+    scroll-behavior: smooth;
     font-size: ${(props) => props.theme.smallText * 1.5}vw;
 
     @media (min-width: 768px) {
         font-size: ${(props) => props.theme.smallText * 0.8}vw;
-        width: 30%;
+        flex-basis: 30%;
+        height: 400px;
+        max-height: 400px;
+        overflow-y: scroll;
+    }
+`;
+
+const SlideDescription = styled.p`
+    padding: 0px 15px 10px 15px;
+    word-wrap: break-word;
+    flex-basis: 30%;
+
+    @media (min-width: 768px) {
+        font-size: ${(props) => props.theme.smallText * 0.8}vw;
     }
 `;
 
 const SlideImage = styled.img`
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+`;
+
+const ImageWrapper = styled.div`
     border-bottom: 10px solid ${(props) => props.theme.border};
+    height: 400px;
+    flex-basis: 70%;
 
     @media (min-width: 768px) {
         border-bottom: none;
         border-right: 10px solid ${(props) => props.theme.border};
-        width: 70%;
     }
 `;
 
@@ -76,10 +94,10 @@ const SlideTitle = styled.span`
     font-weight: bold;
     font-size: ${(props) => props.theme.smallText * 2.5}vw;
     text-align: center;
-    margin: 5px 0px;
+    margin: 5px;
 
     @media (min-width: 768px) {
-        font-size: ${(props) => props.theme.smallText * 0.8}vw;
+        font-size: ${(props) => props.theme.smallText * 1.5}vw;
     }
 `;
 
@@ -99,8 +117,16 @@ const SlideButtonsDiv = styled(CenteredDiv)`
 const SlideLink = styled.a`
     text-decoration: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+
+    * {
+        padding: 0px 10px;
+    }
+
+    @media (min-width: 768px) {
+        font-size: 1.3vw;
+    }
 `;
 
 const Slideshow = ({ slideData, slideshowName, iconSize = 80 }) => {
@@ -158,16 +184,20 @@ const Slideshow = ({ slideData, slideshowName, iconSize = 80 }) => {
 
             {slideData.map((slideData, index) => (
                 <Slide className={`slide-${slideshowName}`} key={index}>
-                    <SlideImage src={slideData.img} alt={slideData.alt} />
-                    <SlideDescription>
+                    <ImageWrapper>
+                        <SlideImage src={slideData.img} alt={slideData.alt} />
+                    </ImageWrapper>
+                    <SlideDescriptionContainer>
                         <SlideTitle>
                             <SlideLink href={slideData.link} target="_blank">
                                 <FaGlobe />
                                 {slideData.title}
                             </SlideLink>
                         </SlideTitle>
-                        {slideData.description}
-                    </SlideDescription>
+                        <SlideDescription>
+                            {slideData.description}
+                        </SlideDescription>
+                    </SlideDescriptionContainer>
                 </Slide>
             ))}
         </SlideshowContainer>
