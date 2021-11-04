@@ -62,10 +62,10 @@ function App() {
                         />
                     </Route>
                     <Route exact path="/passups">
-                        <PassUpsPage />
+                        <PassUpsPage theme={theme} toggleTheme={toggleTheme} />
                     </Route>
                     <Route exact path="/critters">
-                        <ACNHPage />
+                        <ACNHPage theme={theme} toggleTheme={toggleTheme} />
                     </Route>
                     <Route exact path="/404">
                         <NotFoundPage />
