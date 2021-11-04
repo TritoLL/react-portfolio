@@ -15,7 +15,7 @@ const Main = styled.main`
 
 const PassUpsPage = ({ theme, toggleTheme }) => {
     useEffect(() => {
-        document.title = "Winnipeg Transit Pass-Ups";
+        document.title = "Alex Friesen | Winnipeg Transit Pass-Ups";
     }, []);
 
     return (

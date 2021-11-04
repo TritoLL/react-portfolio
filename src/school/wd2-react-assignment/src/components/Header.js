@@ -8,8 +8,7 @@ const CustomHeader = styled.header`
 export default function Header() {
     return (
         <CustomHeader>
-            <h1>Animal Crossing: New Horizons</h1>
-            <h2>Critter Information</h2>
+            <h1>ACNH Critter Info</h1>
         </CustomHeader>
     );
 }

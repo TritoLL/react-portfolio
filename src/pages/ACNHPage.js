@@ -16,7 +16,7 @@ const Main = styled.main`
 
 const ACNHPage = ({ theme, toggleTheme }) => {
     useEffect(() => {
-        document.title = "ACNH Critter Info";
+        document.title = "Alex Friesen | ACNH Critter Info";
     }, []);
 
     return (
