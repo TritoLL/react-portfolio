@@ -3,6 +3,15 @@ import Header from "../school/wd2-react-challenge/src/components/Header";
 import MainHeader from "../components/Header";
 import Footer from "../school/wd2-react-challenge/src/components/Footer";
 import SearchForm from "../school/wd2-react-challenge/src/components/SearchForm";
+import styled from "styled-components";
+
+const Main = styled.main`
+    background-color: ${(props) => props.theme.main};
+    margin: 20px;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    border: 5px solid ${(props) => props.theme.border};
+`;
 
 const PassUpsPage = ({ theme, toggleTheme }) => {
     useEffect(() => {
@@ -12,11 +21,11 @@ const PassUpsPage = ({ theme, toggleTheme }) => {
     return (
         <>
             <MainHeader theme={theme} toggleTheme={toggleTheme} />
-            <main className="App">
+            <Main className="App">
                 <Header />
                 <SearchForm />
                 <Footer />
-            </main>
+            </Main>
         </>
     );
 };
