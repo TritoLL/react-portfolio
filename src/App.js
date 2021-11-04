@@ -12,6 +12,8 @@ import HomePage from "./pages/HomePage";
 import TicTacDogPage from "./pages/TicTacDogPage";
 import HigherOrLowerPage from "./pages/HigherOrLowerPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import PassUpsPage from "./pages/PassUpsPage";
+import ACHNPage from "./pages/ACNHPage";
 
 function App() {
     const [theme, setTheme] = useState(
@@ -58,6 +60,12 @@ function App() {
                             theme={theme}
                             toggleTheme={toggleTheme}
                         />
+                    </Route>
+                    <Route exact path="/passups">
+                        <PassUpsPage />
+                    </Route>
+                    <Route exact path="/critters">
+                        <ACHNPage />
                     </Route>
                     <Route exact path="/404">
                         <NotFoundPage />
