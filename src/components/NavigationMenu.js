@@ -74,6 +74,18 @@ const NavigationMenu = () => {
                         <FullLengthLink>Higher or Lower</FullLengthLink>
                     </Link>
                 </NavListItem>
+                <NavListItem>
+                    <Link to="critters">
+                        <FullLengthLink>ACNH Critter Info</FullLengthLink>
+                    </Link>
+                </NavListItem>
+                <NavListItem>
+                    <Link to="passups">
+                        <FullLengthLink>
+                            Winnipeg Transit Pass-Ups
+                        </FullLengthLink>
+                    </Link>
+                </NavListItem>
             </NavList>
         </Nav>
     );
