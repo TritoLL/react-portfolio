@@ -189,7 +189,11 @@ const Slideshow = ({ slideData, slideshowName, iconSize = 80 }) => {
                     </ImageWrapper>
                     <SlideDescriptionContainer>
                         <SlideTitle>
-                            <SlideLink href={slideData.link} target="_blank">
+                            <SlideLink
+                                href={slideData.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <FaGlobe />
                                 {slideData.title}
                             </SlideLink>

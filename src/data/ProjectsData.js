@@ -23,4 +23,12 @@ export const projectsData = [
         img: "../images/pydfmerge.png",
         alt: "PyDF-Merge Code Snippet",
     },
+    {
+        title: "Mini-Projects",
+        description:
+            "There are quite a few mini-projects available right here on this website: open the hamburger menu to visit them!",
+        link: "",
+        img: "../images/miniprojects.png",
+        alt: "Mini-Projects are in the hamburger menu!",
+    },
 ];
