@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 
 const Nav = styled.nav`
     position: relative;
-    padding: -10px 0 0 0;
-    margin: 0;
-    transition: 0.5s !important;
-    top: -25%;
-    height: 0px;
+    margin-bottom: 10px;
+    height: auto;
     visibility: hidden;
 `;
 
