@@ -20,7 +20,7 @@ const ResultsListItem = styled.li`
     margin: 2px 0;
 
     :nth-child(even) > div {
-        background-color: ${(props) => props.theme.main}AA;
+        background-color: ${(props) => props.theme.body};
     }
 `;
 
