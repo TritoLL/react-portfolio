@@ -7,7 +7,7 @@ const Form = styled.form`
     width: 100%;
     min-width: 100%;
     box-sizing: border-box;
-    background-color: ${(props) => props.theme.body};
+    background-color: ${(props) => props.theme.main};
     box-shadow: none;
     padding: 15px;
 `;
@@ -17,8 +17,9 @@ const Search = styled.input`
     box-sizing: border-box;
     margin: 10px auto;
     padding: 5px;
+    font-size: 1.25em;
     color: ${(props) => props.theme.text};
-    background-color: ${(props) => props.theme.main};
+    background-color: ${(props) => props.theme.body};
     border: 3px solid ${(props) => props.theme.border};
 
     :invalid {
@@ -49,7 +50,7 @@ const Button = styled.button`
     display: inline-block;
     border: 3px solid ${(props) => props.theme.border};
     color: ${(props) => props.theme.text};
-    background-color: ${(props) => props.theme.main};
+    background-color: ${(props) => props.theme.body};
 `;
 
 const ButtonContainer = styled.div`
