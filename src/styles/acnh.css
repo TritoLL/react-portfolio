@@ -38,7 +38,7 @@ header {
 }
 
 body {
-	background-image: url("./Logo192.png");
+	background-image: none;
 	background-size: 30%;
 	background-position: top;
 	margin: 20px;
