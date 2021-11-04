@@ -13,7 +13,7 @@ import TicTacDogPage from "./pages/TicTacDogPage";
 import HigherOrLowerPage from "./pages/HigherOrLowerPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import PassUpsPage from "./pages/PassUpsPage";
-import ACHNPage from "./pages/ACNHPage";
+import ACNHPage from "./pages/ACNHPage";
 
 function App() {
     const [theme, setTheme] = useState(
@@ -65,7 +65,7 @@ function App() {
                         <PassUpsPage />
                     </Route>
                     <Route exact path="/critters">
-                        <ACHNPage />
+                        <ACNHPage />
                     </Route>
                     <Route exact path="/404">
                         <NotFoundPage />
