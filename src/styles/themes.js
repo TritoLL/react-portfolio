@@ -1,20 +1,20 @@
 const bigText = "5";
 const smallText = "2";
 
-export const lightTheme = {
-    main: "#2F5D62",
-    body: "#5E8B7E",
-    border: "#DFEEEB",
-    text: "#EFEFEF",
+export const darkTheme = {
+    main: "#101010",
+    body: "#000000",
+    border: "#00ADC2",
+    text: "#D5D5D5",
     bigText: bigText,
     smallText: smallText,
 };
 
-export const darkTheme = {
+export const lightTheme = {
     main: "#222831",
     body: "#393E46",
     border: "#00ADC2",
-    text: "#D5D5D5",
+    text: "#FFFFFF",
     bigText: bigText,
     smallText: smallText,
 };

@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .transition * {
-        transition-property: background-color, color;
+        transition-property: filter, background-color, color;
         transition-duration: 0.15s;
     }
 
@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
     button:active,
     button:focus {
         cursor: pointer;
+        filter: brightness(1.5);
         color: ${(props) => props.theme.border};
 
         *

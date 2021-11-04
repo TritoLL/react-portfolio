@@ -9,6 +9,10 @@ const Card = styled.div`
     width: 98%;
     box-shadow: 2px 2px 5px #00000044;
     background-color: ${(props) => props.theme.main};
+
+    :hover {
+        filter: brightness(1.5);
+    }
 `;
 
 export default function PassUpCard({ passUp }) {

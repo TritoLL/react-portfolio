@@ -16,7 +16,7 @@ const Card = styled.div`
     box-shadow: 3px 3px 3px #00000055;
 
     :hover {
-        background-color: ${(props) => props.theme.body}CC;
+        filter: brightness(1.5);
     }
 `;
 
