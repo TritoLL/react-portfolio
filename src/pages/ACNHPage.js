@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 const Main = styled.main`
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
     background-color: ${(props) => props.theme.main};
     border: 5px solid ${(props) => props.theme.border};
     box-shadow: 3px 3px 3px #00000055;
