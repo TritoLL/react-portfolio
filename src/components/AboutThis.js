@@ -28,18 +28,7 @@ const AboutThis = ({ iconSize = 80 }) => {
                     It is my first attempt at a portfolio and my first website
                     built with React.
                 </CustomDiv>
-                <CustomDiv
-                    size="small"
-                    style={{ fontWeight: "bold", textAlign: "center" }}
-                >
-                    Technologies used:
-                </CustomDiv>
             </CenteredDiv>
-
-            <IconBox>
-                <FaReact size={iconSize} />
-                <FaNpm size={iconSize} />
-            </IconBox>
         </section>
     );
 };
